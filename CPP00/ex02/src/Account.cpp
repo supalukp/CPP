@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 14:01:51 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/08/18 22:47:51 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/08/19 16:22:14 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,23 +43,17 @@ Account::~Account( void )
     _nbAccounts--;
 }
 
-int Account::getNbAccounts( void )
-{
-    return (_nbAccounts);
-}
-int	Account::getTotalAmount( void )
-{
-    return (_totalAmount);
-}
+int Account::getNbAccounts( void ) { return (_nbAccounts); }
 
-int	Account::getNbDeposits( void )
-{
-    return (_totalNbDeposits);
-}
-int	Account::getNbWithdrawals( void )
-{
-    return(_totalNbWithdrawals);
-}
+int	Account::getTotalAmount( void ) { return (_totalAmount); }
+
+int	Account::getNbDeposits( void ) { return (_totalNbDeposits); }
+
+int	Account::getNbWithdrawals( void ) { return(_totalNbWithdrawals); }
+
+int	Account::checkAmount( void ) const { return (_amount); }
+
+
 void    Account::displayAccountsInfos( void )
 {
     _displayTimestamp();
@@ -71,8 +65,8 @@ void    Account::displayAccountsInfos( void )
 
 void Account::_displayTimestamp( void )
 {
-    std::time_t now = std::time(NULL);
     char buf[20];
+    std::time_t now = std::time(NULL);
     std::strftime(buf, sizeof(buf), "[%Y%m%d_%H%M%S]", std::localtime(&now));
     std::cout << buf << " ";
 }
@@ -117,11 +111,6 @@ bool	Account::makeWithdrawal( int withdrawal )
             << "nb_withdrawals:" << _nbWithdrawals << std::endl;
         return (true);
     }
-}
-
-int		Account::checkAmount( void ) const
-{
-    return (_amount);
 }
 
 void	Account::displayStatus( void ) const 

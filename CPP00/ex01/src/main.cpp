@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 17:55:25 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/08/18 12:11:44 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/08/19 16:19:11 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <iostream>
 
 
-void displayOption()
+static void displayOption()
 {
     std::cout << "\n";
     std::cout << "===========================================\n";
@@ -26,7 +26,7 @@ void displayOption()
     std::cout << "           SEARCH - Find a contact\n";
     std::cout << "           EXIT   - Quit program\n";
     std::cout << "-------------------------------------------\n";
-    std::cout << "Enter your choice: ";
+
 }
 
 int main(int ac, char *av[])
@@ -35,19 +35,28 @@ int main(int ac, char *av[])
     if (ac != 1)
         return (0);
     PhoneBook pb;
+    std::string option;
     while (1)
     {
-        std::string option;
         displayOption();
-        std::getline(std::cin, option);
+        if (!safeGetLine(option, "Enter your choice: "))
+            break;
         if (option == "ADD")
         {
             Contact newContact;
-            newContact.fillContact();
+            if (newContact.fillContact() == false)
+                break;
             pb.addContact(newContact);
         }
         else if (option == "SEARCH")
-            pb.displayContact();
+        {
+            if (pb.getCount() > 0)
+            {
+                pb.displayContact();
+                if (pb.getIndexInfo() == false)
+                    break;
+            }
+        }
         else if (option == "EXIT")
             break;
         else

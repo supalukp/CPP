@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 18:24:55 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/08/18 12:42:39 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/08/19 16:17:53 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,18 @@
 
 class PhoneBook {
     private:
-    Contact ContactList[8];
-    int count;
-    int nextIndex;
+        Contact _ContactList[8];
+        int _Count;
+        int _NextIndex;
     
     public:
-    PhoneBook ();
-    void addContact(Contact newContact);
-    void displayContact();
+        PhoneBook ();
+        ~ PhoneBook ();
+        void addContact(Contact newContact);
+        void displayContact();
+        bool getIndexInfo();
+        int getCount() const ;
 };
 
-std::string truncateOnlyTen(std::string str);
 
 #endif

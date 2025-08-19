@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 23:19:43 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/08/18 12:05:07 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/08/19 15:50:32 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,33 @@
 
 class Contact {
     private:
-    std::string firstname;
-    std::string lastname;
-    std::string nickname;
-    std::string phonenumber;
-    std::string secret;
+    std::string _FirstName;
+    std::string _LastName;
+    std::string _Nickname;
+    std::string _PhoneNumber;
+    std::string _DarkestSecret;
         
     public:
-    Contact () {}
-    void fillContact();
+    Contact();
+    ~ Contact();
+    bool fillContact();
     void displayInfo();
-    bool checkAlpha(const std::string& str);
-    bool checkDigit(const std::string& str);
-    std::string getFirstname() const ;
+    static bool checkAlpha(const std::string& str);
+    static bool checkDigit(const std::string& str);
+    std::string getFirstName() const ;
     std::string getLastName() const ;
     std::string getNickname() const ;
     std::string getPhoneNumber() const ;
     std::string getDarkSecret() const ;
+    bool setFirstName() ;
+    bool setLastName() ;
+    bool setNickname() ;
+    bool setPhoneNumber() ;
+    bool setDarkSecret() ;
+    
     
 };
 
+bool safeGetLine(std::string& str, std::string prompt);
 
 #endif
