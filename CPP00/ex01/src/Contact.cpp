@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 23:19:41 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/08/19 16:13:57 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/08/20 16:32:19 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,32 +93,32 @@ static bool getlineCheckCondition(std::string& str, std::string prompt, bool (*f
 
 bool Contact::setFirstName() 
 {
-	return (getlineCheckCondition(this->_FirstName, "First name: ", Contact::checkAlpha, "letter"));
+	return (getlineCheckCondition(this->_firstName, "First name: ", Contact::checkAlpha, "letter"));
 }
 	
 bool Contact::setLastName()
 {
-	return (getlineCheckCondition(this->_LastName, "Last name: ", Contact::checkAlpha, "letter"));
+	return (getlineCheckCondition(this->_lastName, "Last name: ", Contact::checkAlpha, "letter"));
 }
 bool Contact::setNickname()
 {
-	return (getlineCheckCondition(this->_Nickname, "Nickname: ", Contact::checkAlpha, "letter"));
+	return (getlineCheckCondition(this->_nickname, "Nickname: ", Contact::checkAlpha, "letter"));
 }
 bool Contact::setPhoneNumber()
 {
-	return (getlineCheckCondition(this->_PhoneNumber, "Phone number: ", Contact::checkDigit, "number"));
+	return (getlineCheckCondition(this->_phoneNumber, "Phone number: ", Contact::checkDigit, "number"));
 }
 bool Contact::setDarkSecret()
 {
-	return (safeGetLine( this->_DarkestSecret, "Darkest secret: "));
+	return (safeGetLine( this->_darkestSecret, "Darkest secret: "));
 }
 
-std::string Contact::getFirstName() const { return (this->_FirstName); }
+std::string Contact::getFirstName() const { return (this->_firstName); }
 
-std::string Contact::getLastName() const { return (this->_LastName); }
+std::string Contact::getLastName() const { return (this->_lastName); }
 
-std::string Contact::getNickname() const { return (this->_Nickname); }
+std::string Contact::getNickname() const { return (this->_nickname); }
 
-std::string Contact::getPhoneNumber() const { return (this->_PhoneNumber); }
+std::string Contact::getPhoneNumber() const { return (this->_phoneNumber); }
 
-std::string Contact::getDarkSecret() const { return (this->_DarkestSecret); }
+std::string Contact::getDarkSecret() const { return (this->_darkestSecret); }

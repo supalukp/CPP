@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 23:19:43 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/08/19 15:50:32 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/08/20 16:31:31 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 
 class Contact {
     private:
-    std::string _FirstName;
-    std::string _LastName;
-    std::string _Nickname;
-    std::string _PhoneNumber;
-    std::string _DarkestSecret;
+    std::string _firstName;
+    std::string _lastName;
+    std::string _nickname;
+    std::string _phoneNumber;
+    std::string _darkestSecret;
         
     public:
     Contact();

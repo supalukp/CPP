@@ -6,7 +6,26 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 14:56:14 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/08/20 14:56:15 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/08/20 18:57:16 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef HUMAN_A_HPP
+#define HUMAN_A_HPP
+
+#include <iostream>
+#include "Weapon.hpp"
+
+class HumanA
+{
+    private:
+        std::string _name;
+        Weapon& _weapon;
+    
+    public:
+        HumanA(std::string name, Weapon& weapon);
+        ~HumanA ( void );
+        void attack( void ) const ;
+};
+
+#endif
