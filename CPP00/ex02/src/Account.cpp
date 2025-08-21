@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 14:01:51 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/08/19 16:22:14 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/08/21 11:37:21 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int	Account::getNbWithdrawals( void ) { return(_totalNbWithdrawals); }
 
 int	Account::checkAmount( void ) const { return (_amount); }
 
-
 void    Account::displayAccountsInfos( void )
 {
     _displayTimestamp();
@@ -69,6 +68,15 @@ void Account::_displayTimestamp( void )
     std::time_t now = std::time(NULL);
     std::strftime(buf, sizeof(buf), "[%Y%m%d_%H%M%S]", std::localtime(&now));
     std::cout << buf << " ";
+}
+
+void	Account::displayStatus( void ) const 
+{
+     _displayTimestamp();
+    std::cout << "index:" << _accountIndex << ";"
+        << "amount:" << checkAmount() << ";"
+        << "deposits:" << _nbDeposits << ";"
+        << "withdrawals:" << _nbWithdrawals << std::endl;
 }
 
 void	Account::makeDeposit( int deposit )
@@ -111,13 +119,4 @@ bool	Account::makeWithdrawal( int withdrawal )
             << "nb_withdrawals:" << _nbWithdrawals << std::endl;
         return (true);
     }
-}
-
-void	Account::displayStatus( void ) const 
-{
-     _displayTimestamp();
-    std::cout << "index:" << _accountIndex << ";"
-        << "amount:" << checkAmount() << ";"
-        << "deposits:" << _nbDeposits << ";"
-        << "withdrawals:" << _nbWithdrawals << std::endl;
 }

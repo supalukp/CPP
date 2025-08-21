@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 23:19:43 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/08/20 16:31:31 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/08/21 11:39:02 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,23 +25,22 @@ class Contact {
     std::string _darkestSecret;
         
     public:
-    Contact();
-    ~ Contact();
-    bool fillContact();
-    void displayInfo();
+    Contact( void );
+    ~ Contact( void );
+    bool fillContact( void );
+    void displayInfo( void );
     static bool checkAlpha(const std::string& str);
     static bool checkDigit(const std::string& str);
-    std::string getFirstName() const ;
-    std::string getLastName() const ;
-    std::string getNickname() const ;
-    std::string getPhoneNumber() const ;
-    std::string getDarkSecret() const ;
-    bool setFirstName() ;
-    bool setLastName() ;
-    bool setNickname() ;
-    bool setPhoneNumber() ;
-    bool setDarkSecret() ;
-    
+    std::string getFirstName( void ) const ;
+    std::string getLastName( void ) const ;
+    std::string getNickname( void ) const ;
+    std::string getPhoneNumber( void ) const ;
+    std::string getDarkSecret( void ) const ;
+    bool setFirstName( void ) ;
+    bool setLastName( void ) ;
+    bool setNickname( void ) ;
+    bool setPhoneNumber( void ) ;
+    bool setDarkSecret( void ) ;
     
 };
 

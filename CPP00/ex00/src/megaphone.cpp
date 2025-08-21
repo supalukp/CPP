@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 16:24:04 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/08/19 10:57:26 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/08/21 11:12:56 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void transform_cases(std::string input)
     for (int i = 0; input[i]; i++)
     {
         if (input[i] >= 97 && input[i] <= 122)
-            std::cout << static_cast<char>(toupper(input[i]));
+            std::cout << (char)(toupper(input[i]));
         else
             std::cout << input[i];
     }

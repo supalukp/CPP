@@ -6,26 +6,27 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 18:24:30 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/08/20 16:33:40 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/08/21 11:40:10 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/PhoneBook.hpp"
 #include <stdlib.h>
 
-PhoneBook::PhoneBook() {
+PhoneBook::PhoneBook( void ) 
+{
     _count = 0;
     _index = 0;
 }
 
-PhoneBook::~PhoneBook () { }
+PhoneBook::~PhoneBook ( void ) { }
 
 void PhoneBook::addContact(Contact newContact)
 {
-    this->_contactList[this->_index] = newContact;
-    this->_index = (this->_index + 1) % 8;
-    if (this->_count < 8)
-        this->_count++;
+    _contactList[_index] = newContact;
+    _index = (_index + 1) % 8;
+    if (_count < 8)
+        _count++;
 }
 
 static std::string truncateOnlyTen(std::string str)
@@ -35,9 +36,9 @@ static std::string truncateOnlyTen(std::string str)
     return (str);
 }
 
-int PhoneBook::getCount(void) const { return (this->_count); }
+int PhoneBook::getCount( void ) const { return (_count); }
 
-bool PhoneBook::getIndexInfo()
+bool PhoneBook::getIndexInfo( void )
 {
     std::string input;
     int index;
@@ -55,13 +56,13 @@ bool PhoneBook::getIndexInfo()
         else
         {
             std::cout << "\n";
-            this->_contactList[index-1].displayInfo();
+            _contactList[index-1].displayInfo();
             return (true);
         }
     }
 }
 
-void PhoneBook::displayContact()
+void PhoneBook::displayContact( void )
 {
     std::string input;
     
@@ -71,12 +72,12 @@ void PhoneBook::displayContact()
               << std::setw(10) << "First Name" << "|"
               << std::setw(10) << "Last Name"  << "|"
               << std::setw(10) << "Nickname"   << std::endl;
-    for (int i = 0; i < this->_count; i++)
+    for (int i = 0; i < _count; i++)
     {
         std::cout   << std::setw(10) << i+1 << "|" 
-                    << std::setw(10) << truncateOnlyTen(this->_contactList[i].getFirstName()) << "|" 
-                    << std::setw(10) << truncateOnlyTen(this->_contactList[i].getLastName()) << "|" 
-                    << std::setw(10) << truncateOnlyTen(this->_contactList[i].getNickname()) << std::endl;
+                    << std::setw(10) << truncateOnlyTen(_contactList[i].getFirstName()) << "|" 
+                    << std::setw(10) << truncateOnlyTen(_contactList[i].getLastName()) << "|" 
+                    << std::setw(10) << truncateOnlyTen(_contactList[i].getNickname()) << std::endl;
     }
     std::cout << "-------------------------------------------\n";
 }

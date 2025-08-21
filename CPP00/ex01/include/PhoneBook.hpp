@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 18:24:55 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/08/20 16:32:43 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/08/21 13:13:05 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,12 @@ class PhoneBook {
         int _index;
     
     public:
-        PhoneBook ();
-        ~ PhoneBook ();
+        PhoneBook ( void );
+        ~ PhoneBook ( void );
         void addContact(Contact newContact);
-        void displayContact();
-        bool getIndexInfo();
-        int getCount() const ;
+        void displayContact( void );
+        bool getIndexInfo( void );
+        int getCount( void ) const ;
 };
-
 
 #endif

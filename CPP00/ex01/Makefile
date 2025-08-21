@@ -6,7 +6,7 @@
 #    By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/17 22:33:43 by spunyapr          #+#    #+#              #
-#    Updated: 2025/08/17 22:51:50 by spunyapr         ###   ########.fr        #
+#    Updated: 2025/08/21 11:21:46 by spunyapr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,6 @@ all: $(PROGRAM)
 
 $(PROGRAM): $(OBJS) $(HEADERS) Makefile
 	$(CPP) $(CPPFLAGS) -o $@ $(OBJS)
-
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp $(HEADERS)| $(BUILD_DIR)
 	$(CPP) $(CPPFLAGS) -c $< -o $@

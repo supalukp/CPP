@@ -6,14 +6,13 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 17:55:25 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/08/19 16:19:11 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/08/21 11:19:45 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Contact.hpp"
 #include "../include/PhoneBook.hpp"
 #include <iostream>
-
 
 static void displayOption()
 {
@@ -26,7 +25,6 @@ static void displayOption()
     std::cout << "           SEARCH - Find a contact\n";
     std::cout << "           EXIT   - Quit program\n";
     std::cout << "-------------------------------------------\n";
-
 }
 
 int main(int ac, char *av[])
