@@ -5,33 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/20 14:56:29 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/08/22 10:32:11 by spunyapr         ###   ########.fr       */
+/*   Created: 2025/08/22 13:17:38 by spunyapr          #+#    #+#             */
+/*   Updated: 2025/08/22 13:52:46 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
-#include "HumanA.hpp"
-#include "HumanB.hpp"
-#include <iostream>
+#include "Harl.hpp"
 
-int main(void)
+int main (int ac, char *av[])
 {
-    {
-        Weapon club = Weapon("crude spiked club");
-        HumanA bob("Bob", club);
-        bob.attack();
-        club.setType("some other type of club");
-        bob.attack();
-    }
-    {
-        Weapon club = Weapon("crude spiked club");
-        HumanB jim("Jim");
-        // jim.attack();
-        jim.setWeapon(club);
-        jim.attack();
-        club.setType("some other type of club");
-        jim.attack();
-    }
-    return 0;
+	Harl harl;
+
+	if (ac != 2)
+		return (0);
+	harl.complain(av[1]);
+	return (0);
 }

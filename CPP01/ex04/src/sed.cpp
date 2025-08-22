@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   sed.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/20 14:56:17 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/08/22 10:32:56 by spunyapr         ###   ########.fr       */
+/*   Created: 2025/08/22 11:05:35 by spunyapr          #+#    #+#             */
+/*   Updated: 2025/08/22 12:54:26 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMAN_B_HPP
-#define HUMAN_B_HPP
+#include "sed.hpp"
 
-#include <iostream>
-#include "Weapon.hpp"
-
-class HumanB
+void ft_sed( std::string& origin, std::string const find, std::string const replace)
 {
-    private:
-        std::string _name;
-        Weapon* _weapon;
-    
-    public:
-        HumanB( std::string name );  
-        ~HumanB( void );
-        void attack( void ) const;
-        void setWeapon( Weapon& NewWeapon );
-};
-
-#endif
+	std::string result;
+	for (size_t i = 0; i < origin.length(); i++)
+	{
+		if (origin.substr(i, find.length()) == find)
+		{
+			result += replace;
+			i += find.length() - 1;
+		}
+		else
+			result += origin[i];
+	}
+	origin =  result;
+}

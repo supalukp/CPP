@@ -6,14 +6,18 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 19:57:56 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/08/20 19:58:36 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/08/22 12:46:15 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SED_HPP
-#define SED_HPP
+# define SED_HPP
 
-#include <iostream>
+# include <fstream>
+# include <iostream>
+# include <string>
 
+void	ft_sed(std::string &origin, const std::string find,
+			const std::string replace);
 
 #endif
