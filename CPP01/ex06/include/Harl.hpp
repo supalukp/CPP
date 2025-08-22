@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/22 13:17:38 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/08/22 21:51:34 by spunyapr         ###   ########.fr       */
+/*   Created: 2025/08/22 13:17:44 by spunyapr          #+#    #+#             */
+/*   Updated: 2025/08/22 14:05:09 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#ifndef HARL_HPP
+# define HARL_HPP
 
-static int agrsErr(void)
+# include <iostream>
+
+class Harl
 {
-    std::cout << "Wrong input: use ./Harl LEVEL" << std::endl;
-    return (1);
-}
+  private:
+	void debug(void);
+	void info(void);
+	void warning(void);
+	void error(void);
 
-int main (int ac, char *av[])
-{
-	Harl harl;
+  public:
+	Harl( void );
+	~Harl( void );
+	void complain(std::string level);
+};
 
-	if (ac != 2)
-		return (agrsErr());
-	harl.complain(av[1]);
-	
-	return (0);
-}
+#endif
