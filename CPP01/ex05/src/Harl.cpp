@@ -6,13 +6,24 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 13:17:42 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/08/22 21:53:10 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/08/26 22:35:32 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-Harl::Harl(void) { }
+Harl::Harl(void) 
+{ 
+	funct[0] = &Harl::debug;
+    funct[1] = &Harl::info;
+    funct[2] = &Harl::warning;
+    funct[3] = &Harl::error;
+
+    levels[0] = "DEBUG";
+    levels[1] = "INFO";
+    levels[2] = "WARNING";
+    levels[3] = "ERROR";
+}
 
 Harl::~Harl(void) { }
 
@@ -45,15 +56,12 @@ void Harl::error(void)
 }
 
 void Harl::complain(std::string level)
-{
-	std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	void (Harl::*functions[])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-	
+{	
 	for (int i = 0; i < 4; i++)
 	{
 		if (levels[i] == level)
 		{
-			(this->*functions[i])();
+			(this->*funct[i])();
 			return ;
 		}
 	}

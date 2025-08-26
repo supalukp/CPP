@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 13:17:44 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/08/22 14:05:09 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/08/26 22:37:11 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Harl
 	void info(void);
 	void warning(void);
 	void error(void);
+	std::string levels[4];
 
   public:
 	Harl( void );

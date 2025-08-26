@@ -6,13 +6,19 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 13:17:42 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/08/22 21:45:19 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/08/26 22:40:01 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-Harl::Harl(void) { }
+Harl::Harl(void) 
+{	
+	levels[0] = "DEBUG";
+    levels[1] = "INFO";
+    levels[2] = "WARNING";
+    levels[3] = "ERROR";
+}
 
 Harl::~Harl(void) { }
 
@@ -46,7 +52,6 @@ void Harl::error(void)
 
 void Harl::complain(std::string level)
 {
-	std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	int i = 0;
 	
 	while (i < 4)
@@ -55,6 +60,7 @@ void Harl::complain(std::string level)
 			break;
 		i++;
 	}
+	
 	switch (i)
 	{
 		case 0:
