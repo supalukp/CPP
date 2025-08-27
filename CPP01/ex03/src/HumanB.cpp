@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 14:56:26 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/08/27 11:33:18 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/08/27 11:37:10 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,5 @@ void HumanB::attack( void ) const
 
 void HumanB::setWeapon( Weapon& newWeapon )
 {
-    _weapon = &newWeapon;
+    this->_weapon = &newWeapon;
 }
