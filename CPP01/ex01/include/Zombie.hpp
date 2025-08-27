@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 16:40:33 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/08/20 14:31:29 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/08/27 10:54:50 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 #include <iostream>
 
-class Zombie {
+class Zombie 
+{
 	private:
 		std::string _name;
 	public:

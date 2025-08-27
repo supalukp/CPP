@@ -6,14 +6,18 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 14:56:26 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/08/22 10:31:42 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/08/27 11:33:18 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
 HumanB::HumanB( std::string name )
-    : _name(name), _weapon(NULL) {} 
+    : _name(name), _weapon(NULL) 
+{
+    std::cout << "HumanB created\n";
+} 
+
 
 HumanB::~HumanB ( void )
 {

@@ -6,14 +6,17 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 14:56:23 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/08/22 10:31:49 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/08/27 11:12:08 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 
 HumanA::HumanA( std::string name, Weapon& weapon )
-    : _name(name), _weapon(weapon) {}
+    : _name(name), _weapon(weapon)
+{
+    std::cout << "HumanA created\n";
+} 
 
 HumanA::~HumanA ( void )
 {
