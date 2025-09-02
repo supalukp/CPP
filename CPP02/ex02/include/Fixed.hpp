@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 16:36:53 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/02 17:28:30 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/02 22:38:10 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ class Fixed
 	friend Fixed operator-(Fixed x, Fixed const& y);
 	friend Fixed operator*(Fixed x, Fixed const& y);
 	friend Fixed operator/(Fixed x, Fixed const& y);
+
+	
 };
 
 #endif

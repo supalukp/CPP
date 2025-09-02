@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 16:37:36 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/02 17:29:37 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/02 22:06:43 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,21 +94,25 @@ bool Fixed::operator!=(const Fixed& other) {
 }
 
 Fixed operator+(Fixed x, Fixed const& y) {
-	x += y;
-	return (x);
+	Fixed result;
+    result.setRawBits(x.getRawBits() + y.getRawBits());
+	return (result);
 }
 
 Fixed operator-(Fixed x, Fixed const& y) {
-	x -= y;
-	return (x);
+	Fixed result;
+    result.setRawBits(x.getRawBits() - y.getRawBits());
+	return (result);
 }
 
 Fixed operator*(Fixed x, Fixed const& y) {
-	x *= y;
-	return (x);
+	Fixed result;
+    result.setRawBits(x.getRawBits() * y.getRawBits());
+	return (result);
 }
 
 Fixed operator/(Fixed x, Fixed const& y) {
-	x /= y;
-	return (x);
+	Fixed result;
+    result.setRawBits(x.getRawBits() / y.getRawBits());
+	return (result);
 }
