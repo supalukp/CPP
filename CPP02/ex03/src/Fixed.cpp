@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 16:37:36 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/03 15:08:54 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/03 16:08:18 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int Fixed::getRawBits(void) const {
 	return (this->_fixed);
 }
 
-
 void Fixed::setRawBits(int const raw) {
 	this->_fixed = raw;
 }
@@ -59,7 +58,6 @@ float	Fixed::toFloat( void ) const {
 int		Fixed::toInt( void ) const {
 	return (_fixed >> _fractionBit);
 }
-
 
 std::ostream& operator <<(std::ostream &out, const Fixed& num) {
 	out << num.toFloat();
