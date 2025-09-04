@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Point.hpp                                          :+:      :+:    :+:   */
+/*   bsp.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/03 15:10:58 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/04 16:07:22 by spunyapr         ###   ########.fr       */
+/*   Created: 2025/09/04 14:54:54 by spunyapr          #+#    #+#             */
+/*   Updated: 2025/09/04 15:28:35 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef POINT_HPP
-# define POINT_HPP
+#ifndef BSP_HPP
+# define BSP_HPP
 
 #include <iostream>
 #include "Fixed.hpp"
+#include "Point.hpp"
 
-class Point 
-{
-	private:
-		Fixed const _x;
-		Fixed const _y;
-
-	public:
-		Point( void );
-		Point( float const x, float const y );
-		Point( const Point &other );
-		Point& operator=( const Point& other );
-		~Point( void );
-		Fixed const& getX() const;
-		Fixed const& getY() const;
-};
+bool bsp( Point const& a, Point const& b, Point const& c, Point const& point );
 
 #endif

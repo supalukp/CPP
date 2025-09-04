@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 16:37:36 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/03 16:08:18 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/04 15:55:21 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,26 @@
 const int Fixed::_fractionBit = 8;
 
 Fixed::Fixed() : _fixed(0) {
-	std::cout << "Default constructor called" << std::endl;
+	// std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int newValue) {
 	_fixed = newValue << _fractionBit;
-	std::cout << "Int constructor called" << std::endl;
+	// std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(const float newValue) {
 	_fixed = (int)(roundf(newValue * (1 << _fractionBit)));
-	std::cout << "Float constructor called" << std::endl;
+	// std::cout << "Float constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &other) {
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 	*this = other;
 }
 
 Fixed& Fixed::operator=(const Fixed& other) {
-	std::cout << "Copy assignment operator called" << std::endl;
+	// std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
 	{
 		this->_fixed = other.getRawBits();
@@ -65,7 +65,7 @@ std::ostream& operator <<(std::ostream &out, const Fixed& num) {
 }
 
 Fixed::~Fixed(){
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 }
 
 bool Fixed::operator<(const Fixed& other){
