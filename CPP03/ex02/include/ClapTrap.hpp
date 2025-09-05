@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:11:11 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/06 00:17:35 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/06 00:26:53 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 
 class ClapTrap 
 {
-	private:
+	protected:
 		std::string _name;
 		int _hitPoints;
 		int _energyPoints; 
-		int _attackDamage; 
+		int _attackDamage;
 		
 	public:
 		ClapTrap( void );

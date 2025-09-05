@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 16:11:08 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/06 00:22:49 by spunyapr         ###   ########.fr       */
+/*   Created: 2025/09/05 18:43:57 by spunyapr          #+#    #+#             */
+/*   Updated: 2025/09/06 00:23:37 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
 
-int main ( void ) {
-    
-    ClapTrap a("A");
-    ClapTrap b("B");
-    
-    a.attack("B");
-    b.takeDamage(5);
-    b.beRepaired(3);
-    b.attack("A");
-    
-    return (0);
-}
+#include "ClapTrap.hpp"
+#include <iostream>
+
+class ScavTrap : public ClapTrap 
+{
+        
+    public:
+        ScavTrap(const std::string& name);
+		~ScavTrap( void );
+        
+        void attack(const std::string& target);
+        void guardGate( void );
+};
+
+#endif
