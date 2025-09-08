@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 12:09:35 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/07 12:29:53 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/08 22:55:12 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Brain
         Brain(void);
         Brain(const Brain &other);
         Brain& operator=(const Brain& other);
-        ~Brain( void );
+        ~Brain(void);
     
 };
 

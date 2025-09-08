@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 11:04:05 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/07 12:18:48 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/08 23:08:45 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ Animal::Animal(std::string newType) : _type(newType) {
                 << "Animal constructor called" << std::endl;
 }
 
-Animal::Animal(const Animal &other) {
+Animal::Animal(const Animal &other) : _type(other._type) {
     std::cout << "Animal Copy constructor called" << std::endl;
-	*this = other;
+	// *this = other;
 }
 
 Animal& Animal::operator=(const Animal& other) {

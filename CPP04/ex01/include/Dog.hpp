@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 11:22:57 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/07 23:17:45 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/08 22:55:26 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ class Dog : virtual public Animal
         Brain* _dogBrain;
         
     public:
-        Dog( void );
+        Dog(void);
         Dog(const Dog &other);
         Dog& operator=(const Dog& other);
-        ~Dog( void );
+        ~Dog(void);
         
-        void makeSound( void ) const ;
+        void makeSound(void) const ;
     
 };
 
