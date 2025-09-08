@@ -6,7 +6,7 @@
 #    By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/19 16:27:13 by spunyapr          #+#    #+#              #
-#    Updated: 2025/08/20 19:57:05 by spunyapr         ###   ########.fr        #
+#    Updated: 2025/09/08 16:11:29 by spunyapr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,3 +46,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+ 

@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 11:05:35 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/08/22 12:54:26 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/08 16:12:18 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,12 @@
 
 void ft_sed( std::string& origin, std::string const find, std::string const replace)
 {
-	std::string result;
-	for (size_t i = 0; i < origin.length(); i++)
+	size_t index = 0;
+	
+    while ((index = origin.find(find, index)) != std::string::npos)
 	{
-		if (origin.substr(i, find.length()) == find)
-		{
-			result += replace;
-			i += find.length() - 1;
-		}
-		else
-			result += origin[i];
+		origin.erase(index, find.length());
+		origin.insert(index, replace);
+		index += replace.length();
 	}
-	origin =  result;
 }
