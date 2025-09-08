@@ -6,13 +6,15 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:37:23 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/04 16:08:19 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/08 21:59:43 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bsp.hpp"
+#include "Point.hpp"
 
-static void print_point_position( std::string pointName, bool bsp ) {
+bool bsp(Point const a, Point const b, Point const c, Point const point);
+
+static void print_point_position(std::string pointName, bool bsp) {
 	std::cout << pointName << " is ";
 	if (bsp == true)
 		std::cout << "inside" << std::endl;
@@ -20,7 +22,7 @@ static void print_point_position( std::string pointName, bool bsp ) {
 		std::cout << "not inside" << std::endl;
 }
 
-int main( void ) 
+int main(void) 
 {
 	// Triangle point
 	Point a(0.0, 0.0);

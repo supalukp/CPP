@@ -6,13 +6,13 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 15:11:23 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/04 15:58:29 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/08 21:59:27 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bsp.hpp"
+#include "Point.hpp"
 
-static Fixed area( Point const& a, Point const& b, Point const& c ) 
+static Fixed area(Point const a, Point const b, Point const c) 
 {
 	Fixed partA = a.getX() * (b.getY() - c.getY());
 	Fixed partB = b.getX() * (c.getY() - a.getY());
@@ -25,7 +25,7 @@ static Fixed area( Point const& a, Point const& b, Point const& c )
 	return (total);
 }
 
-bool bsp( Point const& a, Point const& b, Point const& c, Point const& point )
+bool bsp(Point const a, Point const b, Point const c, Point const point)
 {
 	Fixed A = area(a, b, c);
 	Fixed A1 = area(point, b, c);

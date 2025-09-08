@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 16:37:36 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/02 16:08:37 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/08 21:13:47 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,19 +53,18 @@ void Fixed::setRawBits(int const raw) {
 }
 
 float	Fixed::toFloat( void ) const {
-	return ((float)(_fixed)/ (1 << _fractionBit));
+	return ((float)(_fixed) / (float)(1 << _fractionBit));
 }
 
 int		Fixed::toInt( void ) const {
-	return (_fixed >> _fractionBit);
-}
-
-
-std::ostream& operator <<(std::ostream &out, const Fixed& num) {
-	out << num.toFloat();
-	return (out);
+	return (int)(_fixed >> _fractionBit);
 }
 
 Fixed::~Fixed(){
 	std::cout << "Destructor called" << std::endl;
+}
+
+std::ostream& operator<<(std::ostream &out, const Fixed& num) {
+	out << num.toFloat();
+	return (out);
 }

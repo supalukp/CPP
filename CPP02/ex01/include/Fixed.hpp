@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 16:36:53 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/02 15:31:20 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/08 21:20:56 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,19 @@ class Fixed
 	static const int _fractionBit;
 
   public:
-	Fixed();
+	Fixed(void);
 	Fixed(const int newValue);
 	Fixed(const float newValue);
 	Fixed(const Fixed &other);
 	Fixed& operator=(const Fixed& other);
-	friend std::ostream& operator<<(std::ostream &out, const Fixed& num);
-	~Fixed();
+	~Fixed(void);
+	
 	int		getRawBits(void) const;
 	void	setRawBits(int const raw);
 	float	toFloat( void ) const;
 	int		toInt( void ) const;
 };
+
+std::ostream& operator<<(std::ostream &out, const Fixed& num);
 
 #endif

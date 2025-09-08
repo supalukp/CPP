@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 16:36:53 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/02 13:28:03 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/08 21:03:40 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ class Fixed
 	static const int _fractionBit;
 
   public:
-	Fixed();
+	Fixed(void);
 	Fixed(const Fixed &other);
 	Fixed& operator=(const Fixed& other);
-	~Fixed();
+	~Fixed(void);
 	int getRawBits(void) const;
 	void setRawBits(int const raw);
 };

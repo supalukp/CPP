@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 15:10:58 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/04 16:07:22 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/08 21:57:19 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,18 @@
 class Point 
 {
 	private:
-		Fixed const _x;
-		Fixed const _y;
+		const Fixed _x;
+		const Fixed _y;
 
 	public:
-		Point( void );
-		Point( float const x, float const y );
-		Point( const Point &other );
-		Point& operator=( const Point& other );
-		~Point( void );
-		Fixed const& getX() const;
-		Fixed const& getY() const;
+		Point(void);
+		Point(const float x, const float y);
+		Point(const Point &other );
+		Point& operator=(const Point& other);
+		~Point(void);
+		
+		Fixed const& getX(void) const;
+		Fixed const& getY(void) const;
 };
 
 #endif
