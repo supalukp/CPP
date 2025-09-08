@@ -6,7 +6,7 @@
 #    By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/19 16:27:13 by spunyapr          #+#    #+#              #
-#    Updated: 2025/09/04 18:12:42 by spunyapr         ###   ########.fr        #
+#    Updated: 2025/09/08 20:35:17 by spunyapr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,16 +18,16 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -I$(INC_DIR)
 SRC_DIR = src
 INC_DIR = include
 BUILD_DIR = build
-PROGRAM = ClapTrap
+NAME = ClapTrap
 
 SRCS := $(shell find $(SRC_DIR) -name "*.cpp")
 HEADERS := $(shell find $(INC_DIR) -name "*.hpp")
 
 OBJS := $(patsubst $(SRC_DIR)/%.cpp,$(BUILD_DIR)/%.o,$(SRCS))
 
-all: $(PROGRAM) 
+all: $(NAME) 
 
-$(PROGRAM): $(OBJS) $(HEADERS) Makefile
+$(NAME): $(OBJS) $(HEADERS) Makefile
 	$(CPP) $(CPPFLAGS) -o $@ $(OBJS)
 
 
@@ -41,7 +41,7 @@ clean:
 	rm -rf $(BUILD_DIR)
 
 fclean: clean
-	rm -f $(PROGRAM)
+	rm -f $(NAME)
 
 re: fclean all
 

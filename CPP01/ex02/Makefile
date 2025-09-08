@@ -6,7 +6,7 @@
 #    By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/19 16:27:13 by spunyapr          #+#    #+#              #
-#    Updated: 2025/08/20 14:43:10 by spunyapr         ###   ########.fr        #
+#    Updated: 2025/09/08 20:32:20 by spunyapr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,15 +17,15 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 # Directories
 SRC_DIR = src
 BUILD_DIR = build
-PROGRAM = brain
+NAME = brain
 
 SRCS := $(shell find $(SRC_DIR) -name "*.cpp")
 
 OBJS := $(patsubst $(SRC_DIR)/%.cpp,$(BUILD_DIR)/%.o,$(SRCS))
 
-all: $(PROGRAM) 
+all: $(NAME) 
 
-$(PROGRAM): $(OBJS) Makefile
+$(NAME): $(OBJS) Makefile
 	$(CPP) $(CPPFLAGS) -o $@ $(OBJS)
 
 
@@ -39,7 +39,7 @@ clean:
 	rm -rf $(BUILD_DIR)
 
 fclean: clean
-	rm -f $(PROGRAM)
+	rm -f $(NAME)
 
 re: fclean all
 
