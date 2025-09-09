@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 16:40:33 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/08/27 10:54:41 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/09 11:44:42 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ class Zombie
 	private:
 		std::string _name;
 	public:
-		Zombie( std::string newName );
-		~Zombie( void );
-		void announce( void ); 
+		Zombie(std::string newName);
+		~Zombie(void);
+		void announce(void); 
 };
 
-Zombie* newZombie( std::string name );
-void randomChump( std::string name );
+Zombie* newZombie(std::string name);
+void randomChump(std::string name);
 
 #endif

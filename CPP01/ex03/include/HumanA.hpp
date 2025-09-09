@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 14:56:14 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/08/22 10:33:01 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/09 11:45:30 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ class HumanA
         Weapon& _weapon;
     
     public:
-        HumanA( std::string name, Weapon& weapon );
-        ~HumanA ( void );
-        void attack( void ) const ;
+        HumanA(std::string name, Weapon& weapon);
+        ~HumanA (void);
+        void attack(void) const ;
 };
 
 #endif

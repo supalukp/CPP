@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 13:17:44 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/08/26 22:37:11 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/09 11:48:24 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ class Harl
 	std::string levels[4];
 
   public:
-	Harl( void );
-	~Harl( void );
+	Harl(void);
+	~Harl(void);
 	void complain(std::string level);
 };
 

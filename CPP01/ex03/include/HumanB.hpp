@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 14:56:17 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/08/27 11:10:33 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/09 11:46:43 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ class HumanB
         Weapon* _weapon;
     
     public:
-        HumanB( std::string name );  
-        ~HumanB( void );
-        void attack( void ) const;
-        void setWeapon( Weapon& NewWeapon );
+        HumanB(std::string name);  
+        ~HumanB(void);
+        void attack(void) const;
+        void setWeapon(Weapon& NewWeapon);
 };
 
 #endif

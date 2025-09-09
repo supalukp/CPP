@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 14:56:20 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/08/22 10:32:39 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/09 11:45:55 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ class Weapon
         std::string _type;
     
     public:
-        Weapon( std::string typeName );
-        ~Weapon( void );
-        const std::string& getType( void ) const ;
-        void setType( std::string newType );
+        Weapon(std::string typeName);
+        ~Weapon(void);
+        const std::string& getType(void) const ;
+        void setType(std::string newType);
 };
 
 #endif
