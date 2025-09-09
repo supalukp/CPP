@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 11:22:57 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/06 14:16:43 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/09 13:58:58 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 class Dog : virtual public Animal 
 {
     public:
-        Dog( void );
-        ~Dog( void );
+        Dog(void);
+        ~Dog(void);
         
-        void makeSound( void ) const ;
+        void makeSound(void) const ;
     
 };
 

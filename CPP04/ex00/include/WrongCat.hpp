@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 14:48:55 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/06 14:49:30 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/09 13:59:11 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class WrongCat : virtual public WrongAnimal
         WrongCat(void);
         ~WrongCat(void);
 
-        void makeSound( void ) const ;
+        void makeSound(void) const ;
     
 };
 

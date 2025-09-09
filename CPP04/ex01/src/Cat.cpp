@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 11:18:53 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/07 23:38:04 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/09 14:02:00 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ Cat& Cat::operator=(const Cat& other) {
 	return (*this);
 }
 
-Cat::~Cat( void ) {
+Cat::~Cat(void) {
     delete _catBrain;
     std::cout << "Cat Destructor called" << std::endl;
 }
 
-void Cat::makeSound( void ) const {
+void Cat::makeSound(void) const {
     std::cout << "Meowwwwwwwwwww" << std::endl;
 }

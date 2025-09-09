@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 12:16:28 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/07 12:28:23 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/09 14:01:52 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ Brain& Brain::operator=(const Brain& other) {
     return (*this);
 }
 
-Brain::~Brain( void ) {
+Brain::~Brain(void) {
     std::cout << "Brain Destructor called" << std::endl;
 }

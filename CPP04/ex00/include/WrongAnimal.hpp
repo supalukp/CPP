@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 14:45:47 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/06 14:46:37 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/09 13:59:07 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ class WrongAnimal
         std::string _type;
     
     public:
-        WrongAnimal( void );
+        WrongAnimal(void);
         WrongAnimal(std::string newType);
         WrongAnimal(const WrongAnimal &other);
         WrongAnimal& operator=(const WrongAnimal& other);
-        virtual ~WrongAnimal( void );
+        virtual ~WrongAnimal(void);
         
-        virtual void makeSound( void ) const = 0;
-        std::string const& getType( void ) const; 
+        virtual void makeSound(void) const = 0;
+        std::string const& getType(void) const; 
         
 };
 

@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 11:16:49 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/06 14:16:46 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/09 13:59:16 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Cat : virtual public Animal
         Cat(void);
         ~Cat(void);
 
-        void makeSound( void ) const ;
+        void makeSound(void) const ;
     
 };
 

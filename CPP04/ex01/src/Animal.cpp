@@ -6,13 +6,13 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 11:04:05 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/08 23:08:45 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/09 14:01:47 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal( void ) : _type("default") {
+Animal::Animal(void) : _type("default") {
     std::cout << "Animal default constructor called" << std::endl;
 }
 
@@ -35,7 +35,7 @@ Animal& Animal::operator=(const Animal& other) {
 	return (*this);
 }
 
-Animal::~Animal( void ) {
+Animal::~Animal(void) {
     std::cout   << _type << " : " 
                 << "Animal Destructor called" << std::endl;
 }
