@@ -6,13 +6,13 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:11:08 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/06 00:16:29 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/10 15:44:59 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-int main( void ) {
+int main(void) {
     std::cout << "\n--- ClapTrap Test ---" << std::endl;
     ClapTrap clap("CLAP");
     clap.attack("target1");

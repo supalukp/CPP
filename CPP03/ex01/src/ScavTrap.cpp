@@ -6,13 +6,13 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 18:44:30 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/06 00:25:51 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/10 15:31:03 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap( const std::string& name ) : ClapTrap(name) {
+ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name) {
     _hitPoints = 100;
     _energyPoints = 50;
     _attackDamage = 20;
@@ -20,7 +20,7 @@ ScavTrap::ScavTrap( const std::string& name ) : ClapTrap(name) {
                 << "ScavTrap constructor called" << std::endl;
 }
 
-ScavTrap::~ScavTrap( void ) {
+ScavTrap::~ScavTrap(void) {
     std::cout   << _name << " : " 
                 << "ScavTrap Destructor called" << std::endl;
 }
@@ -28,9 +28,9 @@ ScavTrap::~ScavTrap( void ) {
 void ScavTrap::attack(const std::string& target) {
     if (_energyPoints > 0 && _hitPoints > 0) {
         _energyPoints--;
-        std::cout   << "ScavTrap " << this->_name 
+        std::cout   << "ScavTrap " << _name 
                     << " attacks " << target 
-                    << ", causing " << this->_attackDamage
+                    << ", causing " << _attackDamage
                     << " points of damage" << std::endl;
     }
     else {

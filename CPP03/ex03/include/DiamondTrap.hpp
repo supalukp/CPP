@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 22:50:44 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/06 00:31:32 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/10 15:43:26 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ class DiamondTrap : public FragTrap, public ScavTrap
 
     public:
         DiamondTrap(const std::string& diamondName);
-		~DiamondTrap( void );
+		~DiamondTrap(void);
         
-        void whoAmI();
+        void whoAmI(void);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 22:37:46 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/05 23:55:43 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/10 15:43:33 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class FragTrap : virtual public ClapTrap
 {
     public:
         FragTrap(const std::string& name);
-		~FragTrap( void );
+		~FragTrap(void);
 
         void highFivesGuys(void);
 };
