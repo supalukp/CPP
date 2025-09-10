@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 16:37:36 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/09 13:50:05 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/10 14:04:04 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ Fixed::Fixed(const float newValue) {
 	// std::cout << "Float constructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed &other) {
+Fixed::Fixed(const Fixed &other) : _fixed(other._fixed) {
 	// std::cout << "Copy constructor called" << std::endl;
-	*this = other;
+	// *this = other;
 }
 
 Fixed& Fixed::operator=(const Fixed& other) {
@@ -58,7 +58,6 @@ float	Fixed::toFloat(void) const {
 int		Fixed::toInt(void) const {
 	return (_fixed >> _fractionBit);
 }
-
 
 std::ostream& operator <<(std::ostream &out, const Fixed& num) {
 	out << num.toFloat();

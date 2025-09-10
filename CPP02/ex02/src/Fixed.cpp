@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 16:37:36 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/09 13:49:28 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/10 14:03:20 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ Fixed::Fixed(const float newValue) {
 	std::cout << "Float constructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed &other) {
+Fixed::Fixed(const Fixed &other) : _fixed(other._fixed) {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = other;
+	// *this = other;
 }
 
 Fixed& Fixed::operator=(const Fixed& other) {

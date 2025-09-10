@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 11:25:52 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/09 13:59:58 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/10 16:13:18 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Dog::Dog(void) : Animal("Dog") {
 }
 
 Dog::~Dog(void) {
-    std::cout << "Cat Destructor called" << std::endl;
+    std::cout << "Dog Destructor called" << std::endl;
 }
         
 void Dog::makeSound(void) const  {
