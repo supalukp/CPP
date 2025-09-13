@@ -6,13 +6,13 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:11:08 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/06 00:22:49 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/12 12:24:43 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-int main ( void ) {
+int main (void) {
     
     ClapTrap a("A");
     ClapTrap b("B");

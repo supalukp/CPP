@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 18:43:57 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/10 15:43:38 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/12 17:39:58 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@
 
 class ScavTrap : virtual public ClapTrap 
 {
-        
     public:
-        ScavTrap(const std::string& name);
-		~ScavTrap(void);
+        ScavTrap(void); // Default constructor
+        ScavTrap(const std::string& name); // Parameterized constructor
+        ScavTrap(const ScavTrap &other); // Copy constructor
+		ScavTrap& operator=(const ScavTrap& other);  // Copy assignment operator
+		~ScavTrap(void); // Destuctor
         
         void attack(const std::string& target);
         void guardGate(void);

@@ -6,11 +6,24 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 22:50:55 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/10 15:44:30 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/13 10:04:36 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
+
+DiamondTrap::DiamondTrap(void) 
+    : ClapTrap("Default_clap_name"), 
+        FragTrap(), 
+        ScavTrap() 
+{
+    this->name = "Default";
+    this->_hitPoints = FragTrap::_hitPoints;
+    this->_energyPoints = ScavTrap::_energyPoints;
+    this->_attackDamage = FragTrap::_attackDamage;
+    std::cout   << this->name << " : " 
+                << "DiamondTrap constructor called" << std::endl;
+}
 
 DiamondTrap::DiamondTrap(const std::string& diamondName) 
     : ClapTrap(diamondName + "_clap_name"), 
@@ -18,16 +31,36 @@ DiamondTrap::DiamondTrap(const std::string& diamondName)
         ScavTrap(diamondName) 
 {
     this->name = diamondName;
-    _hitPoints = FragTrap::_hitPoints;
-    _energyPoints = ScavTrap::_energyPoints;
-    _attackDamage = FragTrap::_attackDamage;
+    this->_hitPoints = FragTrap::_hitPoints;
+    this->_energyPoints = ScavTrap::_energyPoints;
+    this->_attackDamage = FragTrap::_attackDamage;
     std::cout   << this->name << " : " 
-                << "DiamondTrap constructor called" << std::endl;
+                << "DiamondTrap constructor called with name" << std::endl;
+}
+
+DiamondTrap::DiamondTrap(const DiamondTrap &other) 
+    : ClapTrap(other),
+        FragTrap(other), 
+        ScavTrap(other) {
+    *this = other;
+    std::cout << "DiamondTrap copy constructor called" << std::endl;
+}
+
+DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other) {
+    if (this != &other) {
+        ClapTrap::operator=(other);
+        this->name = other.name;
+        this->_hitPoints = other._hitPoints;
+        this->_energyPoints = other._energyPoints;
+        this->_attackDamage = other._attackDamage;
+    }
+    std::cout << "DiamondTrap copy assignment operator called" << std::endl;
+    return (*this);
 }
 
 DiamondTrap::~DiamondTrap(void) {
     std::cout   << this->name << " : " 
-                << "DiamondTrap Destructor called" << std::endl;
+                << "DiamondTrap destructor called" << std::endl;
 }
         
 void DiamondTrap::whoAmI(void) {
