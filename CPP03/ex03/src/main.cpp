@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:11:08 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/13 10:43:38 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/13 10:50:34 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ int main(void) {
     d4.whoAmI();
     d4.attack("target3");
 
-    std::cout << "\n--- END ---\n" << std::endl;
-    return 0;
+    std::cout << "\n--- Destructors will be called automatically  ---\n" << std::endl;
+    
+    return (0);
 }
