@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:11:11 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/12 15:57:28 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/13 11:04:55 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class ClapTrap
 		ClapTrap(void); // Default constructor
 		ClapTrap(std::string newName); // Parameterized constructor
 		ClapTrap(const ClapTrap &other); // Copy constructor
-		ClapTrap& operator=(const ClapTrap& other);  // Copy assignment operator
+		ClapTrap& operator=(const ClapTrap& other); // Copy assignment operator
 		~ ClapTrap(void); // Destructor
 		
 		void attack(const std::string& target);
