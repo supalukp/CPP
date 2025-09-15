@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 14:45:47 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/09 14:01:24 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/15 14:14:00 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ class WrongAnimal
         std::string _type;
     
     public:
-        WrongAnimal(void);
-        WrongAnimal(std::string newType);
-        WrongAnimal(const WrongAnimal &other);
-        WrongAnimal& operator=(const WrongAnimal& other);
-        virtual ~WrongAnimal(void);
+        WrongAnimal(void); // Default constructor
+        WrongAnimal(std::string newType); // Parameterized constructor
+        WrongAnimal(const WrongAnimal &other); // Copy constructor
+        WrongAnimal& operator=(const WrongAnimal& other); // Copy assignment operator
+        virtual ~WrongAnimal(void); // Destructor
         
-        virtual void makeSound(void) const = 0;
+        void makeSound(void) const;
         std::string const& getType(void) const; 
         
 };

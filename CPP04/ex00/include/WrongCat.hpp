@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 14:48:55 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/09 13:59:11 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/13 11:24:23 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@
 class WrongCat : virtual public WrongAnimal
 {
     public:
-        WrongCat(void);
-        ~WrongCat(void);
+        WrongCat(void); // Default constructor
+        WrongCat(const WrongCat &other); // Copy constructor
+		WrongCat& operator=(const WrongCat& other); // Copy assignment operator
+        ~WrongCat(void); // Destructor
 
         void makeSound(void) const ;
     

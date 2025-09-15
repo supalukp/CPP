@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 10:53:25 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/15 14:22:50 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/15 21:50:09 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Animal
         Animal& operator=(const Animal& other); // Copy assignment operator
         virtual ~Animal(void); // Destructor
         
-        virtual void makeSound(void) const;
+        virtual void makeSound(void) const = 0;
         std::string const& getType(void) const; 
         
 };

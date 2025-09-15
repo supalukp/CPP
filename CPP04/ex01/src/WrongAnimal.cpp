@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 14:47:08 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/09 14:02:31 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/15 14:19:55 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,13 @@ WrongAnimal::WrongAnimal(std::string newType) : _type(newType) {
                 << "WrongAnimal constructor called" << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &other) {
+WrongAnimal::WrongAnimal(const WrongAnimal &other) : _type(other._type) {
     std::cout << "Copy constructor called" << std::endl;
-	*this = other;
 }
 
 WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other) {
     std::cout << "Copy assignment operator called" << std::endl;
-	if (this != &other)
-	{
+	if (this != &other) {
 		this->_type = other._type;
 	}
 	return (*this);
@@ -37,7 +35,11 @@ WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other) {
 
 WrongAnimal::~WrongAnimal(void) {
     std::cout   << _type << " : " 
-                << "WrongAnimal Destructor called" << std::endl;
+                << "WrongAnimal destructor called" << std::endl;
 }
 
-std::string const& WrongAnimal::getType(void) const { return (_type); }
+void WrongAnimal::makeSound() const {
+    std::cout << "Helloooooo (wrong animal sound)" << std::endl;
+}
+
+std::string const& WrongAnimal::getType( void ) const { return (_type); }

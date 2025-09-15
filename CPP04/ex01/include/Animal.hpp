@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 10:53:25 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/08 22:55:05 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/15 14:22:50 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ class Animal
         std::string _type;
     
     public:
-        Animal(void);
-        Animal(std::string newType);
-        Animal(const Animal &other);
-        Animal& operator=(const Animal& other);
-        virtual ~Animal(void);
+        Animal(void); // Default constructor
+        Animal(std::string newType); // Parameterized constructor
+        Animal(const Animal &other); // Copy constructor
+        Animal& operator=(const Animal& other); // Copy assignment operator
+        virtual ~Animal(void); // Destructor
         
-        virtual void makeSound(void) const = 0;
+        virtual void makeSound(void) const;
         std::string const& getType(void) const; 
         
 };

@@ -6,7 +6,7 @@
 #    By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/19 16:27:13 by spunyapr          #+#    #+#              #
-#    Updated: 2025/09/15 17:36:33 by spunyapr         ###   ########.fr        #
+#    Updated: 2025/09/15 22:12:57 by spunyapr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -I$(INC_DIR)
 SRC_DIR = src
 INC_DIR = include
 BUILD_DIR = build
-NAME = brain
+NAME = abstract
 
 SRCS := $(shell find $(SRC_DIR) -name "*.cpp")
 HEADERS := $(shell find $(INC_DIR) -name "*.hpp")
