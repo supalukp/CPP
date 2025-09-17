@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 11:27:49 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/15 22:18:10 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/17 21:30:21 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int main(void)
     std::cout << "Dog type: " << dog->getType() << std::endl;
     std::cout << "Cat type: " << cat->getType() << std::endl;
 
-    std::cout << "\n--- Delete ---" << std::endl;
+    std::cout << "\n--- Clean up ---" << std::endl;
     std::cout << "** Destruction: Derived first, then members, then base **" << std::endl;
     delete dog;
     delete cat;

@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 11:27:49 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/15 21:32:11 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/09/17 21:30:33 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ int main(void) {
         animals[i]->makeSound();
     }
     
-    std::cout << "\n--- Delete animals ---" << std::endl;
+    std::cout << "\n--- Clean up ---" << std::endl;
     for (int i = 0; i < 10; i++)
         delete animals[i];
 
