@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 22:50:44 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/12 18:55:20 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/10/08 08:00:53 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 class DiamondTrap : public FragTrap, public ScavTrap 
 {
     private:
-        std::string name;
+        std::string _name;
 
     public:
         DiamondTrap(void); // Default constructor
@@ -31,6 +31,7 @@ class DiamondTrap : public FragTrap, public ScavTrap
 		~DiamondTrap(void); // Destructor
         
         void whoAmI(void);
+        void attack(const std::string& target);
 };
 
 #endif

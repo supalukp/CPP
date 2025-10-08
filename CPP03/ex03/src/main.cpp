@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:11:08 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/13 10:50:34 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/10/08 07:45:20 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int main(void) {
     }
 
     std::cout << "\n--- Parameterized Constructor ---" << std::endl;
-    DiamondTrap d2("DIAMOND"); 
+    DiamondTrap d2("DIAMOND");
     d2.attack("target1");
     d2.takeDamage(20);
     d2.beRepaired(10);
