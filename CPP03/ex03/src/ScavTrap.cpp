@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 18:44:30 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/10/08 08:10:05 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/10/09 07:56:00 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 ScavTrap::ScavTrap(void) : ClapTrap() {
     _hitPoints = 100;
     _energyPoints = 50;
-    _attackDamage = 20;
+    // _attackDamage = 20;
     std::cout   << _name << " : " 
                 << "ScavTrap default constructor called" << std::endl;
 }

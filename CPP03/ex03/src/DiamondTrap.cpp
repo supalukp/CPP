@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 22:50:55 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/10/08 08:10:35 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/10/09 07:57:21 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ DiamondTrap::DiamondTrap(void)
         ScavTrap() 
 {
     this->_name = "Default";
-    this->_hitPoints = 100;
-    this->_energyPoints = 50;
-    this->_attackDamage = 30;
+    this->_hitPoints = FragTrap::_hitPoints;
+    this->_energyPoints = ScavTrap::_energyPoints;
+    this->_attackDamage = FragTrap::_attackDamage;
     
     std::cout   << this->_name << " : " 
                 << "DiamondTrap constructor called" << std::endl;
@@ -32,9 +32,10 @@ DiamondTrap::DiamondTrap(const std::string& diamondName)
         ScavTrap(diamondName) 
 {
     this->_name = diamondName;
-    this->_hitPoints = 100;
-    this->_energyPoints = 50;
-    this->_attackDamage = 30;
+    this->_hitPoints = FragTrap::_hitPoints;
+    this->_energyPoints = ScavTrap::_energyPoints;
+    this->_attackDamage = FragTrap::_attackDamage;
+    
     std::cout   << this->_name << " : " 
                 << "DiamondTrap constructor called with name" << std::endl;
 }
@@ -68,7 +69,6 @@ void DiamondTrap::whoAmI(void) {
     std::cout   << "I am " << this->_name 
                 << " / " << ClapTrap::_name << std::endl;
 }
-
 
 void DiamondTrap::attack(const std::string& target) {
     ScavTrap::attack(target);
