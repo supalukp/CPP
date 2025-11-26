@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 20:18:05 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/17 20:53:27 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/11/21 11:26:34 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Character : public ICharacter
     
     public:
         Character(void); // Default constructor
-        Character(std::string newName);
+        Character(std::string newName); // Parameterized constructor
         Character(const Character& other); // Copy constructor
         Character& operator=(const Character& other); // Copy assignment operator
         ~Character(void); // Destructor

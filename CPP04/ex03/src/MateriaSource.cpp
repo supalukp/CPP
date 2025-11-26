@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 16:21:22 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/17 21:21:01 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/11/26 10:50:06 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
 
-MateriaSource::MateriaSource(void) : _type("default") {
+MateriaSource::MateriaSource(void) {
     for(int i = 0; i < 4; i++) {
         _inventory[i] = NULL;
     }
@@ -21,16 +21,7 @@ MateriaSource::MateriaSource(void) : _type("default") {
     std::cout << "MateriaSource default constructor called" << std::endl;    
 }
 
-MateriaSource::MateriaSource(std::string newType) : _type(newType) {
-    for(int i = 0; i < 4; i++) {
-        _inventory[i] = NULL; 
-    }
-    _inventoryCount = 0;
-    
-    std::cout << "MateriaSource constructor called with type" << std::endl;    
-}
-
-MateriaSource::MateriaSource(const MateriaSource &other) : _type(other._type) {
+MateriaSource::MateriaSource(const MateriaSource &other) {
     for(int i = 0; i < 4; i++)
     {
         if (other._inventory[i])
@@ -55,7 +46,6 @@ MateriaSource& MateriaSource::operator=(const MateriaSource &other) {
         else
             _inventory[i] = NULL;
     }
-    _type = other._type;
     _inventoryCount = other._inventoryCount;
     return (*this);
 }

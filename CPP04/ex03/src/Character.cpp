@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 20:18:46 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/09/17 21:35:21 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/11/21 12:29:30 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ Character::Character(const Character& other) : _name(other._name) {
             _floor[i] = NULL;
     }
     _floorCount = other._floorCount;
-
+    
     // std::cout << "Character copy constructor called" << std::endl;
 }
 
@@ -115,16 +115,15 @@ void Character::equip(AMateria* m) {
 }
 
 void Character::unequip(int idx) {
-    if (idx >= 0 && idx <= 3 && _inventory[idx] != NULL) {
-        if (_floorCount < MAX_FLOOR) {
-            std::cout << "-- Unequip Materia: " << _inventory[idx]->getType() << std::endl;
-            _floor[_floorCount++] = _inventory[idx];
-        }
-        else {
-            std::cout << "Floor is full, leaking Materia" << std::endl;
-        }
-        _inventory[idx] = NULL;
+    if (idx < 0 || idx > 3 || !_inventory[idx])
+        return ;
+    if (_floorCount >= MAX_FLOOR) {
+        std::cout << "Floor is full, can not unequip" << std::endl;
+        return ;
     }
+    std::cout << "-- Unequip Materia: " << _inventory[idx]->getType() << std::endl;
+    _floor[_floorCount++] = _inventory[idx];
+    _inventory[idx] = NULL;
 }
 
 void Character::use(int idx, ICharacter& target) {
@@ -133,10 +132,8 @@ void Character::use(int idx, ICharacter& target) {
         return;
     }
     if (_inventory[idx] == NULL) {
-        std::cout << _name << " has no materia in slot " << idx << " to use()." << std::endl;
+        std::cout << _name << " has no materia in slot " << idx << " to use." << std::endl;
         return;
     }
     _inventory[idx]->use(target);
-    // if ((idx >= 0 && idx <= 3) && _inventory[idx] != NULL)
-    //     _inventory[idx]->use(target);
 }
