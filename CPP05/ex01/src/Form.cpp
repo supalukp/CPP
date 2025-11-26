@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 14:25:50 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/11/26 16:12:09 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/11/26 17:34:58 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,9 @@ std::ostream& operator<<(std::ostream &out, const Form& name)
         << " gradeExecute " << name.getGradeExecute();
         
     if (name.getIsSigned() == true)
-        out << " > Form is signed" << std::endl;
+        out << " > Form is signed";
     else
-        out << " > Form is not signed yet" << std::endl;
+        out << " > Form is not signed yet";
     
     return (out);
 }
@@ -95,11 +95,9 @@ const char* Form::GradeTooLowException::what() const throw()
     return ("Grade is too low");
 }
 
-void Form::beSigned(const Bureaucrat &name)
+void Form::beSigned(const Bureaucrat &bureaucrat)
 {
-    if (name.getGrade() < 1)
-        throw GradeTooHighException();
-    else if (name.getGrade() > 150)
+    if (bureaucrat.getGrade() >= this->getGradeSign())
         throw GradeTooLowException();
     else
         _signed = true;

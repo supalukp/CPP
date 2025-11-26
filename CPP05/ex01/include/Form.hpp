@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 14:25:40 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/11/26 16:09:07 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/11/26 17:20:36 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ class Form
         int getGradeSign(void) const;
         int getGradeExecute(void) const;
 
-        void beSigned(const Bureaucrat &name);
+        void beSigned(const Bureaucrat &bureaucrat);
 
         class GradeTooHighException : public std::exception
         {

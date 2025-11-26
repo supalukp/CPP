@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:07:22 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/11/26 16:06:14 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/11/26 17:35:19 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void Bureaucrat::decreaseGrade(void)
 
 std::ostream& operator <<(std::ostream &out, const Bureaucrat& name)
 { 
-    out << name.getName() << ", bureaucrat grade " << name.getGrade() << "." << std::endl;
+    out << name.getName() << ", bureaucrat grade " << name.getGrade() << ".";
     return (out);
 }
 
@@ -82,4 +82,19 @@ const char* Bureaucrat::GradeTooHighException::what() const throw()
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
     return ("Grade is too low");
+}
+
+void Bureaucrat::signForm(Form &form)
+{
+    try
+    {
+        form.beSigned(*this);
+    }
+    catch(const std::exception& e)
+    {
+        std::cout << this->getName() << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+        return ;
+    }
+    
+    std::cout << this->getName() << " signed " << form.getName() << std::endl;
 }
