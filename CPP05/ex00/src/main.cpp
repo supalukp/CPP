@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:07:25 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/11/26 13:27:31 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/11/26 14:23:30 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,11 @@ int main(void)
     try
     {
         b.increaseGrade();
-        Bureaucrat e("E", 151);
     }
     catch(const std::exception& e)
     {
         std::cerr << "Catch Exception: "<< e.what() << std::endl;
     }
-
+    
     return (0);
 }
