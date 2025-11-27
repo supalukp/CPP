@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+         #
+#    By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/19 16:27:13 by spunyapr          #+#    #+#              #
-#    Updated: 2025/11/27 15:26:38 by spunyapr         ###   ########.fr        #
+#    Updated: 2025/11/18 15:07:44 by spunyapr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -I$(INC_DIR)
 SRC_DIR = src
 INC_DIR = include
 BUILD_DIR = build
-NAME = form
+NAME = bureaucrat
 SRCS := $(shell find $(SRC_DIR) -name "*.cpp")
 HEADERS := $(shell find $(INC_DIR) -name "*.hpp")
 
