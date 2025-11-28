@@ -6,14 +6,16 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 17:47:56 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/11/28 09:40:20 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/11/28 09:55:30 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SHRUBBERY_CREATION_FORM_HPP
 #define SHRUBBERY_CREATION_FORM_HPP
 
-#include "AForm.hpp"
+# include "AForm.hpp"
+# include <fstream>
+# include <iostream>
 
 class ShrubberyCreationForm : public AForm
 {

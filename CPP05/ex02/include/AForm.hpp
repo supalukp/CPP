@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 17:43:35 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/11/27 18:21:01 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/11/28 14:31:19 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,13 @@ class AForm
             public:
                 const char* what() const throw();
         };
-
+        
+        class FormNotSignException : public std::exception
+        {
+            public:
+                const char* what() const throw();        
+        };
+        
 };
 
 std::ostream& operator<<(std::ostream &out, const AForm& name);

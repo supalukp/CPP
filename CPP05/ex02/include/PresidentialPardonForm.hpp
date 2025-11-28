@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 18:24:07 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/11/28 09:40:30 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/11/28 11:22:46 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define PRESIDENTIAL_PARDON_FORM_HPP
 
 #include "AForm.hpp"
+#include <iostream>
 
 class PresidentialPardonForm : public AForm
 {

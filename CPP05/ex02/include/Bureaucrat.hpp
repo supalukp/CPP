@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:07:19 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/11/28 09:20:10 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/11/28 11:14:45 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ class Bureaucrat
                 const char* what() const throw();
         };
          
+        void executeForm(AForm const & form) const;
 };
     
 std::ostream& operator <<(std::ostream &out, const Bureaucrat& name);

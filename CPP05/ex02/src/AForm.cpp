@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 17:43:26 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/11/28 09:36:31 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/11/28 14:45:09 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,23 @@ const char* AForm::GradeTooLowException::what() const throw()
 
 void AForm::beSigned(const Bureaucrat &bureaucrat)
 {
-    if (bureaucrat.getGrade() >= this->getGradeSign())
+    if (bureaucrat.getGrade() > this->getGradeSign())
         throw GradeTooLowException();
     else
         _signed = true;
+}
+
+const char* AForm::FormNotSignException::what() const throw()
+{
+    return ("Form is not signed yet");
+}
+
+void AForm::execute(Bureaucrat const & executor) const
+{
+    if (_signed == false)
+        throw FormNotSignException();
+    if (executor.getGrade() > _gradeExecute)
+        throw GradeTooLowException();
+    
+    executeAction();
 }
