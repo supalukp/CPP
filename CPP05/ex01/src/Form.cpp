@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 14:25:50 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/11/26 17:34:58 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/11/28 17:56:27 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,14 +73,14 @@ int Form::getGradeExecute(void) const { return (_gradeExecute); }
 
 std::ostream& operator<<(std::ostream &out, const Form& name)
 {
-    out << name.getName()  << "form :"
+    out << name.getName()  << " form :"
         << " gradeSign " << name.getGradeSign() 
         << " gradeExecute " << name.getGradeExecute();
         
     if (name.getIsSigned() == true)
-        out << " > Form is signed";
+        out << " : Form is signed";
     else
-        out << " > Form is not signed yet";
+        out << " : Form is not signed yet";
     
     return (out);
 }
