@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:07:22 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/11/27 17:56:55 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/11/28 09:36:21 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade(oth
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
-    std::cout << "Copy assignment operator called" << std::endl;
+    std::cout << "Bureaucrat copy assignment operator called" << std::endl;
 	if (this != &other) {
 		this->_grade = other._grade;
 	}
@@ -84,7 +84,7 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
     return ("Grade is too low");
 }
 
-void Bureaucrat::signForm(Form &form)
+void Bureaucrat::signForm(AForm &form)
 {
     try
     {

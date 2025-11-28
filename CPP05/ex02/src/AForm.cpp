@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 17:43:26 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/11/27 17:56:40 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/11/28 09:36:31 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ AForm::AForm(const AForm &other)
 
 AForm& AForm::operator=(const AForm& other)
 {
-    std::cout << "Copy assignment operator called" << std::endl;
+    std::cout << "AForm copy assignment operator called" << std::endl;
 	if (this != &other) {
 		this->_signed = other._signed;
 	}
