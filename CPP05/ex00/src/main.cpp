@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:07:25 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/11/28 17:46:42 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/11/28 17:57:25 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main(void)
     std::cout << "      TEST FOR BUREAUCRAT      " << std::endl;
     std::cout << "==============================" << std::endl;
     {
-        std::cout << "\n--- Constructor ---" << std::endl;
+        std::cout << "\n--- Default constructor ---" << std::endl;
         Bureaucrat a;
         std::cout << a << std::endl;
         
@@ -31,7 +31,7 @@ int main(void)
         std::cout << "\n--- Constructor with parameter grade too high ---" << std::endl;
         try
         {
-            Bureaucrat low("Too high", 0);
+            Bureaucrat high("Too high", 0);
         }
         catch(const std::exception& e)
         {
