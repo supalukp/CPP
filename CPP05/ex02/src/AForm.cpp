@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 17:43:26 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/01 15:25:27 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/01 16:19:10 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ AForm::AForm(std::string name, const int gradeSign, const int gradeExecute)
         
     std::cout << "AForm constructor called with parameters" << std::endl;
 }
+
 AForm::AForm(const AForm &other) 
     : _name(other._name),
     _signed(other._signed),
@@ -73,14 +74,14 @@ int AForm::getGradeExecute(void) const { return (_gradeExecute); }
 
 std::ostream& operator<<(std::ostream &out, const AForm& name)
 {
-    out << name.getName()  << "form :"
+    out << name.getName()  << " form :"
         << " gradeSign " << name.getGradeSign() 
         << " gradeExecute " << name.getGradeExecute();
         
     if (name.getIsSigned() == true)
-        out << " > AForm is signed";
+        out << " > " << name.getName() << " is signed";
     else
-        out << " > AForm is not signed yet";
+        out << " > " << name.getName() << " is not signed yet";
     
     return (out);
 }

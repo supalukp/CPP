@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 17:56:57 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/01 15:16:45 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/01 16:40:07 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
     : AForm("ShrubberyCreationForm", 145, 137),
     _target(target)
 {
-    std::cout << "ShrubberyCreationForm constructor called with name and grade" << std::endl;
+    std::cout << "ShrubberyCreationForm constructor called with target name: " << target << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) 
@@ -60,8 +60,6 @@ static void writeAsciiTree(std::ofstream &outfile)
 
 void ShrubberyCreationForm::executeAction(void) const
 {
-    // Create a file <target>_shrubbery in the working directory and writes ASCII trees inside it
-    // write ASCII tree in contents
     std::ofstream outfile;
     std::string outfileName;
     std::string contents;
