@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:07:25 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/11/28 17:57:25 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/01 13:02:49 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int main(void)
 {
-    std::cout << "\n\n==============================" << std::endl;
+    std::cout << "\n==============================" << std::endl;
     std::cout << "      TEST FOR BUREAUCRAT      " << std::endl;
     std::cout << "==============================" << std::endl;
     {
@@ -122,6 +122,6 @@ int main(void)
             std::cerr << "Catch Exception B: "<< e.what() << std::endl;
         }
     }
-    
+    std::cout << "\n--- End Test ---" << std::endl;
     return (0);
 }
