@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 14:25:40 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/11/26 17:20:36 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/01 13:07:13 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,16 @@ class Form
         Form(const Form &other);
         Form& operator=(const Form& other);
         ~Form(void);
-    
+        
+        // Getters
         std::string const& getName(void) const;
         bool getIsSigned(void) const; 
         int getGradeSign(void) const;
         int getGradeExecute(void) const;
-
+        
         void beSigned(const Bureaucrat &bureaucrat);
 
+        // Exception
         class GradeTooHighException : public std::exception
         {
             public:
@@ -54,6 +56,7 @@ class Form
 
 };
 
+// Overload operator (<<)
 std::ostream& operator<<(std::ostream &out, const Form& name);
 
 #endif

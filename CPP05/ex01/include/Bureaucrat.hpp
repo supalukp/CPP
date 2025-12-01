@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:07:19 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/11/26 17:26:57 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/01 13:06:54 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,27 +32,32 @@ class Bureaucrat
         Bureaucrat& operator=(const Bureaucrat& other);
         ~Bureaucrat(void);
         
+        // Getters
         std::string const& getName(void) const;
         int getGrade(void) const;
+
+        // Increment & Decrement
         void increaseGrade(void);
         void decreaseGrade(void);
-
-        void signForm(Form &form);
         
+        void signForm(Form &form);
+
+        // Exception
         class GradeTooHighException : public std::exception
         {
             public:
-                const char* what() const throw();
+                virtual const char* what() const throw();
         };
 
         class GradeTooLowException : public std::exception
         {
             public:
-                const char* what() const throw();
+                virtual const char* what() const throw();
         };
          
 };
-    
+
+// Overload operator (<<)
 std::ostream& operator <<(std::ostream &out, const Bureaucrat& name);
 
 #endif
