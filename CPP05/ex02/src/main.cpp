@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 09:20:42 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/01 17:12:03 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/01 17:15:31 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,8 @@ int main(void)
             std::cerr << "Catch Exception execute(): " << e.what() << std::endl;
         }
         std::cout << std::endl;
-
     }
+    
     std::cout << "\n==============================" << std::endl;
     std::cout << "    RobotomyRequestForm   " << std::endl;
     std::cout << "==============================" << std::endl;
@@ -114,6 +114,59 @@ int main(void)
 
         std::cout << "\n--- Destructor ---" << std::endl;
     }
+    
+    std::cout << "\n==============================" << std::endl;
+    std::cout << "  RobotomyRequestForm: execute()  " << std::endl;
+    std::cout << "==============================" << std::endl;
+    {
+        
+        ShrubberyCreationForm a("home");
+        Bureaucrat b("B", 137);
+        std::cout << "\n--- Test: not signed form ---" << std::endl;
+        std::cout << a << std::endl;
+        std::cout << b << std::endl;
+        try
+        {
+            a.execute(b);
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << "Catch Exception execute(): " << e.what() << std::endl;
+        }
+
+        std::cout << "\n--- Test: signed form ---" << std::endl;
+        try
+        {
+            b.signForm(a);
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << "Catch Exception signForm(): " << e.what() << std::endl;
+        }
+        try
+        {
+            a.execute(b);
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << "Catch Exception execute(): " << e.what() << std::endl;
+        }
+
+        std::cout << "\n--- Test: grade too low ---" << std::endl;
+        b.decreaseGrade();
+        std::cout << b << std::endl;
+        
+        try
+        {
+            a.execute(b);
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << "Catch Exception execute(): " << e.what() << std::endl;
+        }
+        std::cout << std::endl;
+    }
+    
     std::cout << "\n==============================" << std::endl;
     std::cout << "    PresidentialPardonForm   " << std::endl;
     std::cout << "==============================" << std::endl;
