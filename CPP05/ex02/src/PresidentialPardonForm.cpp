@@ -6,21 +6,29 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 18:25:25 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/11/28 14:51:28 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/01 15:16:54 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(void) : AForm("PresidentialPardonForm", 25, 5), _target("default")
+PresidentialPardonForm::PresidentialPardonForm(void)
+    : AForm("PresidentialPardonForm", 25, 5),
+    _target("default")
 {
     std::cout << "PresidentialPardonForm default constructor called" << std::endl;
 }
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("PresidentialPardonForm", 25, 5), _target(target)
+
+PresidentialPardonForm::PresidentialPardonForm(std::string target) 
+    : AForm("PresidentialPardonForm", 25, 5), 
+    _target(target)
 {
     std::cout << "PresidentialPardonForm constructor called with name and grade" << std::endl;
 }
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other) : AForm(other), _target(other._target)
+
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other) 
+    : AForm(other), 
+    _target(other._target)
 {
     std::cout << "PresidentialPardonForm copy constructor called" << std::endl;
 }

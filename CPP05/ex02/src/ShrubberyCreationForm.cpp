@@ -6,21 +6,29 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 17:56:57 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/11/28 15:03:27 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/01 15:16:45 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("ShrubberyCreationForm", 145, 137), _target("default")
+ShrubberyCreationForm::ShrubberyCreationForm(void) 
+    : AForm("ShrubberyCreationForm", 145, 137),
+    _target("default")
 {
     std::cout << "ShrubberyCreationForm default constructor called" << std::endl;
 }
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreationForm", 145, 137), _target(target)
+
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) 
+    : AForm("ShrubberyCreationForm", 145, 137),
+    _target(target)
 {
     std::cout << "ShrubberyCreationForm constructor called with name and grade" << std::endl;
 }
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) : AForm(other), _target(other._target)
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) 
+    : AForm(other),
+    _target(other._target)
 {
     std::cout << "ShrubberyCreationForm copy constructor called" << std::endl;
 }
