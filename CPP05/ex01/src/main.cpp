@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 16:03:21 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/01 12:28:40 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/01 13:31:15 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,60 @@ int main(void)
 
         std::cout << "\n--- Destructor ---" << std::endl;
     }
-    
+
+    std::cout << "\n==============================" << std::endl;
+    std::cout << "      TEST beSigned()     " << std::endl;
+    std::cout << "==============================" << std::endl;
+    {
+        std::cout << "\n--- Test: bureaucrat´s grade is high enough ---" << std::endl;
+        Form b("B", 50, 50);
+        Bureaucrat a("A", 1);
+        std::cout << b << std::endl;
+        std::cout << a << std::endl;
+
+        try
+        {
+            b.beSigned(a);
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << "Catch Exception beSigned(): " << e.what() << std::endl;
+        }
+        std::cout << b << std::endl;
+    }
+    {
+        std::cout << "\n--- Test: bureaucrat´s grade is equal ---" << std::endl;
+        Form b("B", 50, 50);
+        Bureaucrat a("A", 50);
+        std::cout << b << std::endl;
+        std::cout << a << std::endl;
+
+        try
+        {
+            b.beSigned(a);
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << "Catch Exception beSigned(): " << e.what() << std::endl;
+        }
+        std::cout << b << std::endl;
+    }
+    {
+        std::cout << "\n--- Test: bureaucrat´s grade is lower ---" << std::endl;
+        Form b("B", 50, 50);
+        Bureaucrat a("A", 150);
+        std::cout << b << std::endl;
+        std::cout << a << std::endl;
+
+        try
+        {
+            b.beSigned(a);
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << "Catch Exception beSigned(): " << e.what() << std::endl;
+        }
+        std::cout << b << std::endl;
+    }
     return (0);
 }

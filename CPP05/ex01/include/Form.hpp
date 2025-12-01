@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 14:25:40 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/01 13:07:13 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/01 13:15:10 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,13 @@ class Form
         class GradeTooHighException : public std::exception
         {
             public:
-                const char* what() const throw();
+                virtual const char* what() const throw();
         };
 
         class GradeTooLowException : public std::exception
         {
             public:
-                const char* what() const throw();
+                virtual const char* what() const throw();
         };
 
 };
