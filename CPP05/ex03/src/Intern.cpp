@@ -6,10 +6,11 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 15:44:48 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/02 11:29:33 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/02 14:28:08 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "AForm.hpp"
 #include "Intern.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
@@ -17,6 +18,14 @@
 
 Intern::Intern(void)
 {
+    funct[0] = &Intern::makeShrubbery;
+    funct[1] = &Intern::makeRobotomy;
+    funct[2] = &Intern::makePresidential;
+
+    validName[0] = "ShrubberyCreationForm";
+    validName[1] = "RobotomyRequestForm";
+    validName[2] = "PresidentialPardonForm";
+    
     std::cout << "Intern default constructor called" << std::endl;
 }
 
@@ -38,36 +47,32 @@ Intern::~Intern(void)
     std::cout << "Intern destructor called" << std::endl;
 }
 
-const char* Intern::nameNotValid::what() const throw()
+AForm* Intern::makeShrubbery(std::string target)
 {
-    return ("Form name is not valid");
+    return (new ShrubberyCreationForm(target));
 }
 
-AForm *Intern::makeForm(std::string const &formName, std::string const &formTarget)
+AForm* Intern::makeRobotomy(std::string target)
 {
-    std::string valid_name[] = {"ShrubberyCreationForm",
-                                "RobotomyRequestForm",
-                                "PresidentialPardonForm"};
-    int i = 0;
-    while (i < 3)
-    {
-        if (formName == valid_name[i])
-            break ;
-        i++;
-    }
-    switch (i)
-    {
-        case 0:
+    return (new RobotomyRequestForm(target));
+}
+
+AForm* Intern::makePresidential(std::string target)
+{
+    return (new PresidentialPardonForm(target));
+}
+
+AForm *Intern::makeForm(std::string const formName, std::string const formTarget)
+{
+    for (int i = 0; i < 3; i++)
+	{
+		if (validName[i] == formName)
+        {
             std::cout << "Intern creates " << formName << std::endl;
-            return (new ShrubberyCreationForm(formTarget));
-        case 1:
-            std::cout << "Intern creates " << formName << std::endl;
-            return (new RobotomyRequestForm(formTarget));
-        case 2:
-            std::cout << "Intern creates " << formName << std::endl;
-            return (new PresidentialPardonForm(formTarget));
-        default:
-            std::cout << "No form name matched" << std::endl;
-            return (NULL);
-    }
+			return ((this->*funct[i])(formTarget));
+        }
+	}
+    
+    std::cout << "No form name matched" << std::endl;
+    return (NULL);
 }
