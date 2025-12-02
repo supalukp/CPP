@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 15:45:14 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/02 10:48:59 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/02 11:28:48 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class Intern
                 virtual const char* what() const throw();
         };
         
-        AForm *makeForm(std::string const formName, std::string const formTarget);
+        AForm *makeForm(std::string const &formName, std::string const &formTarget);
 };
 
 #endif

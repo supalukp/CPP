@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 17:43:26 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/11/28 16:16:49 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/02 11:15:14 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,9 @@ std::ostream& operator<<(std::ostream &out, const AForm& name)
         << " gradeExecute " << name.getGradeExecute();
         
     if (name.getIsSigned() == true)
-        out << " > AForm is signed";
+        out << " > " << name.getName() << " is signed";
     else
-        out << " > AForm is not signed yet";
+        out << " > " << name.getName() << " is not signed yet";
     
     return (out);
 }
