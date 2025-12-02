@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 18:25:28 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/01 15:17:04 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/02 12:36:09 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,9 @@ RobotomyRequestForm::~RobotomyRequestForm(void)
 
 void RobotomyRequestForm::executeAction(void) const
 {
+    std::cout << "Drilling noises.. " << std::endl;
     if (std::rand() % 2)
-        std::cout << "Drilling noises.. " << _target << " has been robotomized." << std::endl;
+        std::cout << _target << " has been robotomized." << std::endl;
     else
-        std::cout << "The robotomy failed." << std::endl;
+        std::cout << "The robotomy of target " << _target <<  " failed." << std::endl;
 }
