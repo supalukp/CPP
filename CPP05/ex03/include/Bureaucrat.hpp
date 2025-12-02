@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:07:19 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/11/28 11:14:45 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/02 10:48:55 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,13 @@ class Bureaucrat
         class GradeTooHighException : public std::exception
         {
             public:
-                const char* what() const throw();
+                virtual const char* what() const throw();
         };
 
         class GradeTooLowException : public std::exception
         {
             public:
-                const char* what() const throw();
+                virtual const char* what() const throw();
         };
          
         void executeForm(AForm const & form) const;
