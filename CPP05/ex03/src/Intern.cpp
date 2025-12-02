@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 15:44:48 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/02 11:28:38 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/02 11:29:33 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ AForm *Intern::makeForm(std::string const &formName, std::string const &formTarg
     {
         if (formName == valid_name[i])
             break ;
-
         i++;
     }
     switch (i)
