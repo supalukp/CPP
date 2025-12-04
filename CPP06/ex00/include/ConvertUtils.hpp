@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ConvertUtils.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/03 15:04:24 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/03 15:19:28 by spunyapr         ###   ########.fr       */
+/*   Created: 2025/12/04 17:38:40 by spunyapr          #+#    #+#             */
+/*   Updated: 2025/12/04 17:45:27 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef CONVERT_UTILS_HPP
+#define CONVERT_UTILS_HPP
 
-int main(void)
+typedef enum e_literal
 {
-    return (0);
-}
+    CHAR,
+    INT,
+    FLOAT,
+    DOUBLE,
+    UNKNOWN
+    
+} t_e_literal;
+
+#endif
