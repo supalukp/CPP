@@ -6,13 +6,15 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:42:57 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/05 11:48:11 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/05 13:25:25 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
 ScalarConverter::ScalarConverter(void) { }
+
+ScalarConverter::~ScalarConverter(void) { }
 
 ScalarConverter::ScalarConverter(const ScalarConverter &other)
 {
@@ -24,8 +26,6 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other)
     (void) other;
     return (*this);
 }
-
-ScalarConverter::~ScalarConverter(void) { }
 
 void ScalarConverter::convert(const std::string &str)
 {
