@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:42:53 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/04 21:42:03 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/05 11:14:35 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,21 @@
 
 #include <iostream>
 #include <string>
-#include "ConvertUtils.hpp"
 #include <cstdlib>
 #include <cerrno>
 #include <iomanip>
 #include <climits>
 #include <cfloat>
+
+typedef enum e_literal
+{
+    CHAR,
+    INT,
+    FLOAT,
+    DOUBLE,
+    UNKNOWN
+    
+} t_e_literal;
 
 class ScalarConverter
 {
@@ -46,5 +55,6 @@ class ScalarConverter
     public:
         static void convert(const std::string &str);
 };
+
 
 #endif
