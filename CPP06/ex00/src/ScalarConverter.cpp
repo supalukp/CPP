@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:42:57 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/05 13:25:25 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/05 17:35:42 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,8 +182,6 @@ void ScalarConverter::displaySpecial(const std::string &str)
         std::cout << "float: " << str << "f" << std::endl;
         std::cout << "double: " << str << std::endl;
     }
-    else
-        return ;
 }
 
 void ScalarConverter::displayUnknown(void)
