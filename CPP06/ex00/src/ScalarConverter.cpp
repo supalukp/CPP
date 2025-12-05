@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:42:57 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/04 22:15:53 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/05 11:21:46 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,17 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other)
 
 ScalarConverter::~ScalarConverter(void) { }
 
-bool ScalarConverter::isChar(const std::string &str)
+bool ScalarConverter::isChar(const std::string &str, size_t len)
 {
-    size_t len = str.size();
     if (len == 1 && !isdigit(static_cast<unsigned char>(str[0])))
         return (true);
     if (len == 3 && str[0] == '\'' && str[2] == '\'')
+    
         return (true);
     return (false);
 }
 
-bool ScalarConverter::isInt(const std::string &str)
+bool ScalarConverter::isInt(const std::string &str, size_t len)
 {
     size_t index = 0;
     
@@ -45,9 +45,9 @@ bool ScalarConverter::isInt(const std::string &str)
         return false;
     if (str[0] == '-' || str[0] == '+')
         index = 1;
-    if (index == str.size())
+    if (index == len)
         return false;
-    while (index < str.size())
+    while (index < len)
     {
         if (!isdigit(static_cast<unsigned char>(str[index])))
             return (false);
@@ -56,9 +56,8 @@ bool ScalarConverter::isInt(const std::string &str)
     return (true);
 }
 
-bool ScalarConverter::isFloat(const std::string &str)
+bool ScalarConverter::isFloat(const std::string &str, size_t len)
 {
-    size_t len = str.size();
     size_t index = 0;
     size_t dot = 0;
     size_t digits = 0;
@@ -86,9 +85,8 @@ bool ScalarConverter::isFloat(const std::string &str)
     return (true);
 }
 
-bool ScalarConverter::isDouble(const std::string &str)
+bool ScalarConverter::isDouble(const std::string &str, size_t len)
 {
-    size_t len = str.size();
     size_t index = 0;
     size_t dot = 0;
     size_t digits = 0;
@@ -118,13 +116,15 @@ bool ScalarConverter::isDouble(const std::string &str)
 
 t_e_literal ScalarConverter::getType(const std::string &str)
 {
-    if (isChar(str))
+    size_t len = str.size();
+    
+    if (isChar(str, len))
         return CHAR;
-    else if (isInt(str))
+    else if (isInt(str, len))
         return INT;
-    else if (isFloat(str))
+    else if (isFloat(str, len))
         return FLOAT;
-    else if (isDouble(str))
+    else if (isDouble(str, len))
         return DOUBLE;
     else
         return UNKNOWN;

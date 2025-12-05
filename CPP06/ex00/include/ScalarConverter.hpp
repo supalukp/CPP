@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:42:53 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/05 11:14:35 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/05 11:20:17 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ class ScalarConverter
     private:
         static t_e_literal getType(const std::string &str);
         
-        static bool isChar(const std::string &str);
-        static bool isInt(const std::string &str);
-        static bool isFloat(const std::string &str);
-        static bool isDouble(const std::string &str);
+        static bool isChar(const std::string &str, size_t len);
+        static bool isInt(const std::string &str, size_t len);
+        static bool isFloat(const std::string &str, size_t len);
+        static bool isDouble(const std::string &str, size_t len);
 
         static void toChar(const std::string &str);
         static void toInt(const std::string &str);
@@ -55,6 +55,5 @@ class ScalarConverter
     public:
         static void convert(const std::string &str);
 };
-
 
 #endif
