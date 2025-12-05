@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:42:53 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/05 11:40:59 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/05 16:59:57 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ class ScalarConverter
         static void toInt(const std::string &str);
         static void toFloat(const std::string &str);
         static void toDouble(const std::string &str);
+        
         static void displayUnknown(void);
         static void displayChar(int i);
         static void displaySpecial(const std::string &str);
