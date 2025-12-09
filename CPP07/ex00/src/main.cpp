@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 13:22:40 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/08 14:16:33 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/09 10:20:57 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ int main(void)
         std::cout << "\nSWAP: int" << std::endl;
         int x = 5;
         int y = 20;
-        swap(x,y);
+        std::cout << "x = " << x << std::endl;
+        std::cout << "y = " << y << std::endl;
+        std::cout << "After swap: " << std::endl;
+        ::swap(x,y);
         std::cout << "x = " << x << std::endl;
         std::cout << "y = " << y << std::endl;
     }
@@ -29,7 +32,10 @@ int main(void)
         std::cout << "\nSWAP: float" << std::endl;
         float x = 5.5f;
         float y = 20.35f;
-        swap(x,y);
+        std::cout << "x = " << x << std::endl;
+        std::cout << "y = " << y << std::endl;
+        std::cout << "After swap: " << std::endl;
+        ::swap(x,y);
         std::cout << "x = " << x << std::endl;
         std::cout << "y = " << y << std::endl;
     }
@@ -37,7 +43,10 @@ int main(void)
         std::cout << "\nSWAP: string" << std::endl;
         std::string x = "hello";
         std::string y = "world";
-        swap(x,y);
+        std::cout << "x = " << x << std::endl;
+        std::cout << "y = " << y << std::endl;
+        std::cout << "After swap: " << std::endl;
+        ::swap(x,y);
         std::cout << "x = " << x << std::endl;
         std::cout << "y = " << y << std::endl;
     }
@@ -50,7 +59,7 @@ int main(void)
         int y = 20;
         std::cout << "x = " << x << std::endl;
         std::cout << "y = " << y << std::endl;
-        std::cout << "min of (x, y) = " << min(x,y) << std::endl;
+        std::cout << "min of (x, y) = " << ::min(x,y) << std::endl;
     }
     {
         std::cout << "\nMIN: float" << std::endl;
@@ -58,7 +67,7 @@ int main(void)
         float y = 20.35f;
         std::cout << "x = " << x << std::endl;
         std::cout << "y = " << y << std::endl;
-        std::cout << "min of (x, y) = " << min(x,y) << std::endl;
+        std::cout << "min of (x, y) = " << ::min(x,y) << std::endl;
     }
     {
         std::cout << "\nMIN: string" << std::endl;
@@ -66,7 +75,7 @@ int main(void)
         std::string y = "hello";
         std::cout << "x = " << x << std::endl;
         std::cout << "y = " << y << std::endl;
-        std::cout << "min of (x, y) = " << min(x,y) << std::endl;
+        std::cout << "min of (x, y) = " << ::min(x,y) << std::endl;
     }
     
     std::cout << "\n==============================" << std::endl;
@@ -78,7 +87,7 @@ int main(void)
         int y = 20;
         std::cout << "x = " << x << std::endl;
         std::cout << "y = " << y << std::endl;
-        std::cout << "max of (x, y) = " << max(x,y) << std::endl;
+        std::cout << "max of (x, y) = " << ::max(x,y) << std::endl;
     }
     {
         std::cout << "\nMAX: float" << std::endl;
@@ -86,7 +95,7 @@ int main(void)
         float y = 20.35f;
         std::cout << "x = " << x << std::endl;
         std::cout << "y = " << y << std::endl;
-        std::cout << "max of (x, y) = " << max(x,y) << std::endl;
+        std::cout << "max of (x, y) = " << ::max(x,y) << std::endl;
     }
     {
         std::cout << "\nMAX: string" << std::endl;
@@ -94,7 +103,7 @@ int main(void)
         std::string y = "hello";
         std::cout << "x = " << x << std::endl;
         std::cout << "y = " << y << std::endl;
-        std::cout << "max of (x, y) = " << max(x,y) << std::endl;
+        std::cout << "max of (x, y) = " << ::max(x,y) << std::endl;
     }
     std::cout << "\n==============================" << std::endl;
     std::cout << "      TEST FORM SUBJECT     " << std::endl;
