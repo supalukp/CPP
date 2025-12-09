@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 16:10:52 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/08 17:10:56 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/09 13:28:30 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define ARRAY_HPP
 
 #include <iostream>
+#include <exception>
 
 template <typename T>
 class Array
@@ -28,6 +29,7 @@ class Array
         Array(unsigned int n);
         Array(const Array &other);
         Array& operator=(const Array& other);
+        T& operator[](unsigned int idx);
         ~Array(void);
 
         unsigned int size() const;

@@ -6,13 +6,13 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 16:34:07 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/08 17:09:14 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/09 14:02:34 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 template <typename T>
 Array<T>::Array(void)
-    : _array(NULL), _size(0)
+    : _array(new T[0]), _size(0)
 {
 }
 
@@ -41,6 +41,15 @@ Array<T>& Array<T>::operator=(const Array& other)
         }
     }
     return (*this);
+}
+
+template <typename T>
+T& Array<T>::operator[](unsigned int idx)
+{
+    if (idx < 0 || idx >= _size)
+        throw std::out_of_range("out of range");
+        
+    return (_array[idx]);
 }
 
 template <typename T>
