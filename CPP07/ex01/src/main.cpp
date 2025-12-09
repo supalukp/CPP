@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:40:28 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/09 12:26:10 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/09 12:43:35 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int main(void)
         for (int i = 0; i < len; i++)
             std::cout << array[i] << " ";
         std::cout << std::endl;
-        
     }
     {
         std::cout << "\n--- Test: string ---" << std::endl;
@@ -59,7 +58,6 @@ int main(void)
         for (int i = 0; i < len; i++)
             std::cout << str[i] << " ";
         std::cout << std::endl;
-        
     }
     std::cout << "\n==============================" << std::endl;
     std::cout << "      TEST: const    " << std::endl;
@@ -89,7 +87,6 @@ int main(void)
         std::cout << "call iter with ft printValue: " << std::endl;
         iter(array, len, printValue<char>);
         std::cout << std::endl;
-        
     }
     {
         std::cout << "\n--- Test: string ---" << std::endl;
@@ -100,7 +97,6 @@ int main(void)
         std::cout << "call iter with ft printValue: " << std::endl;
         iter(&str[0], len, printValue<char>);
         std::cout << std::endl;
-        
     }
     return (0);
 }
