@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:40:28 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/08 16:08:33 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/09 12:26:10 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ int main(void)
     {
         std::cout << "\n--- Test: int array ---" << std::endl;
         int array[] = {1,2,3,4,5,6,7,8,9,10};
-        const int len = 10;
+        const int len = sizeof(array) / sizeof(array[0]);
         std::cout << "Original: " << std::endl;
         for (int i = 0; i < len; i++)
             std::cout << array[i] << " ";
         std::cout << std::endl;
         
         std::cout << "After iter: " << std::endl;
-        iter(array, len, &addOne);
+        iter(array, len, addOne<int>);
         for (int i = 0; i < len; i++)
             std::cout << array[i] << " ";
         std::cout << std::endl;
@@ -42,7 +42,7 @@ int main(void)
         std::cout << std::endl;
         
         std::cout << "After iter: " << std::endl;
-        iter(array, len, &addOne);
+        iter(array, len, addOne<char>);
         for (int i = 0; i < len; i++)
             std::cout << array[i] << " ";
         std::cout << std::endl;
@@ -55,7 +55,7 @@ int main(void)
         const int len = str.size();
         
         std::cout << "After iter: " << std::endl;
-        iter(&str[0], len, &addOne);
+        iter(&str[0], len, addOne<char>);
         for (int i = 0; i < len; i++)
             std::cout << str[i] << " ";
         std::cout << std::endl;
@@ -74,7 +74,7 @@ int main(void)
         std::cout << std::endl;
         
         std::cout << "call iter with ft printValue: " << std::endl;
-        iter(array, len, &printValue);
+        iter(array, len, printValue<int>);
         std::cout << std::endl;
     }
     {
@@ -87,7 +87,7 @@ int main(void)
         std::cout << std::endl;
         
         std::cout << "call iter with ft printValue: " << std::endl;
-        iter(array, len, &printValue);
+        iter(array, len, printValue<char>);
         std::cout << std::endl;
         
     }
@@ -98,25 +98,9 @@ int main(void)
         const int len = str.size();
         
         std::cout << "call iter with ft printValue: " << std::endl;
-        iter(&str[0], len, &printValue);
+        iter(&str[0], len, printValue<char>);
         std::cout << std::endl;
         
-    }
-    std::cout << "\n==============================" << std::endl;
-    std::cout << "  TEST: non return void function    " << std::endl;
-    std::cout << "==============================" << std::endl;
-    {
-        std::cout << "\n--- Test: int array ---" << std::endl;
-        int array[] = {1,2,3,4,5,6,7,8,9,10};
-        const int len = 10;
-        std::cout << "Original: " << std::endl;
-        for (int i = 0; i < len; i++)
-            std::cout << array[i] << " ";
-        std::cout << std::endl;
-        
-        std::cout << "call iter with ft minusOne: " << std::endl;
-        iter(array, len, &minusOne);
-        std::cout << std::endl;
     }
     return (0);
 }
