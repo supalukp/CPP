@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 16:10:52 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/10 12:16:08 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/10 12:29:59 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <exception>
+#include <stdexcept>
 
 template <typename T>
 class Array
