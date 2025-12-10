@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 16:10:52 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/09 13:28:30 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/10 12:16:08 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class Array
         Array(const Array &other);
         Array& operator=(const Array& other);
         T& operator[](unsigned int idx);
+        const T& operator[](unsigned int idx) const;
         ~Array(void);
 
         unsigned int size() const;
