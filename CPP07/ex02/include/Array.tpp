@@ -6,13 +6,13 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 16:34:07 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/10 11:32:00 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/10 11:32:49 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 template <typename T>
 Array<T>::Array(void)
-    : _array(new T[0]), _size(0)
+    : _array(NULL), _size(0)
 {
     std::cout << "Default constructor called" << std::endl;
 }
