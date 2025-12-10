@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:17:18 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/09 12:26:07 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/10 12:20:26 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,6 @@ void iter(T1 *array, const size_t length, T2 func)
     {
         func(array[i]);
     }
-}
-
-template <typename T>
-void addOne(T &x)
-{
-    x += 1;
-}
-
-template <typename T>
-void printValue(const T &x) 
-{
-    std::cout << x << "-";
 }
 
 #endif

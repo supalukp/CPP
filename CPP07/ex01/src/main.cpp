@@ -6,11 +6,23 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:40:28 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/09 12:43:35 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/10 12:20:40 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
+
+template <typename T>
+void addOne(T &x)
+{
+    x += 1;
+}
+
+template <typename T>
+void printValue(const T &x) 
+{
+    std::cout << x << "-";
+}
 
 int main(void)
 {
