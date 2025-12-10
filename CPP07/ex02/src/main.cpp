@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 16:11:21 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/10 11:17:28 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/10 12:23:19 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,10 @@ int main (void)
     std::cout << "         Type : INT   " << std::endl;
     std::cout << "==============================" << std::endl;
     {
-        // Test default constructors
         std::cout << "\n---- Test default constructors ----" << std::endl;
         Array <int>a;
         std::cout << "size of a = " << a.size() << std::endl;
 
-        //  Test parameterized constructors
         std::cout << "\n---- Test parameterized constructors ----" << std::endl;
         Array <int>b(5);
         std::cout << "size of b = " << b.size() << std::endl;
@@ -35,7 +33,6 @@ int main (void)
             std::cout << b[i] << " ";
         std::cout << "\n";
         
-        // Test copy constructors
         std::cout << "\n---- Test copy constructors ----" << std::endl;
         Array <int>copy(b);
         std::cout << "size of copy from b = " << copy.size() << std::endl;
@@ -43,7 +40,6 @@ int main (void)
             std::cout << copy[i] << " ";
         std::cout << "\n";
 
-        // Test assignment operators
         std::cout << "\n---- Test assignment operators ----" << std::endl;
         
         std::cout << "\n*** Copy from smaller array ***" << std::endl;
@@ -155,12 +151,10 @@ int main (void)
     std::cout << "         Type : CHAR   " << std::endl;
     std::cout << "==============================" << std::endl;
     {
-        // Test default constructors
         std::cout << "\n---- Test default constructors ----" << std::endl;
         Array <char>a;
         std::cout << "size of a = " << a.size() << std::endl;
 
-        //  Test parameterized constructors
         std::cout << "\n---- Test parameterized constructors ----" << std::endl;
         Array <char>b(5);
         std::cout << "size of b = " << b.size() << std::endl;
@@ -170,7 +164,6 @@ int main (void)
             std::cout << b[i] << " ";
         std::cout << "\n";
         
-        // Test copy constructors
         std::cout << "\n---- Test copy constructors ----" << std::endl;
         Array <char>copy(b);
         std::cout << "size of copy from b = " << copy.size() << std::endl;
@@ -178,7 +171,6 @@ int main (void)
             std::cout << copy[i] << " ";
         std::cout << "\n";
 
-        // Test assignment operators
         std::cout << "\n---- Test assignment operators ----" << std::endl;
         
         std::cout << "\n*** Copy from smaller array ***" << std::endl;
