@@ -6,7 +6,7 @@
 #    By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/19 16:27:13 by spunyapr          #+#    #+#              #
-#    Updated: 2025/12/08 15:53:59 by spunyapr         ###   ########.fr        #
+#    Updated: 2025/12/11 12:27:24 by spunyapr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,8 @@ SRC_DIR = src
 INC_DIR = include
 BUILD_DIR = build
 NAME = iter
-SRCS := $(shell find $(SRC_DIR) -name "*.cpp")
-HEADERS := $(shell find $(INC_DIR) -name "*.hpp")
+SRCS = $(SRC_DIR)/main.cpp
+HEADERS = $(INC_DIR)/iter.hpp
 
 OBJS := $(patsubst $(SRC_DIR)/%.cpp,$(BUILD_DIR)/%.o,$(SRCS))
 
