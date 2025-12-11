@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 16:34:07 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/10 12:16:23 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/11 12:37:38 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ Array<T>::Array(void)
 template <typename T>
 Array<T>::Array(unsigned int n) : _array(new T[n]), _size(n)
 {
-    for(unsigned int i = 0; i < _size; i++) 
-    {
-        _array[i] = 0;
-    }
+    // for(unsigned int i = 0; i < _size; i++) 
+    // {
+    //     _array[i] = 0;
+    // }
     std::cout << "Constructor called with parameter" << std::endl;
 }
 

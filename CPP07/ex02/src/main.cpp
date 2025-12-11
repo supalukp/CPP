@@ -6,13 +6,18 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 16:11:21 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/10 12:23:19 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/11 12:39:37 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 #include <climits>
 #include <float.h>
+
+struct Data
+{
+    int x;
+};
 
 int main (void)
 {
@@ -308,6 +313,16 @@ int main (void)
             a[i] = LONG_MAX - i;
         for (unsigned int i = 0; i < a.size(); i++)
             std::cout << a[i] << " ";
+        std::cout << "\n";
+    }
+    {
+        std::cout << "\n---- Type: struct ----" << std::endl;
+        Array <Data>a(5);
+        std::cout << "size of a = " << a.size() << std::endl;
+        for (unsigned int i = 0; i < a.size(); i++)
+            a[i].x = 1 + i;
+        for (unsigned int i = 0; i < a.size(); i++)
+            std::cout << a[i].x << " ";
         std::cout << "\n";
     }
     std::cout << "\n----------- End test ------------" << std::endl;

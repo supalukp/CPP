@@ -6,7 +6,7 @@
 #    By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/19 16:27:13 by spunyapr          #+#    #+#              #
-#    Updated: 2025/12/09 09:41:43 by spunyapr         ###   ########.fr        #
+#    Updated: 2025/12/11 12:33:10 by spunyapr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,17 +19,15 @@ SRC_DIR = src
 INC_DIR = include
 BUILD_DIR = build
 NAME = array
-SRCS := $(shell find $(SRC_DIR) -name "*.cpp")
-HEADERS := $(shell find $(INC_DIR) -name "*.hpp")
-TPPS := $(shell find $(INC_DIR) -name "*.tpp")
-
+SRCS = $(SRC_DIR)/main.cpp
+HEADERS = $(INC_DIR)/Array.hpp
+TPPS = $(INC_DIR)/Array.tpp
 OBJS := $(patsubst $(SRC_DIR)/%.cpp,$(BUILD_DIR)/%.o,$(SRCS))
 
 all: $(NAME) 
 
 $(NAME): $(OBJS) $(HEADERS) Makefile
 	$(CPP) $(CPPFLAGS) -o $@ $(OBJS)
-
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp $(HEADERS) $(TPPS)| $(BUILD_DIR)
 	$(CPP) $(CPPFLAGS) -c $< -o $@
