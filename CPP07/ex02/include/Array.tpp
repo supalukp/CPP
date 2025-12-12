@@ -6,13 +6,12 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 16:34:07 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/11 12:52:09 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/12 11:52:23 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 template <typename T>
-Array<T>::Array(void)
-    : _array(NULL), _size(0)
+Array<T>::Array(void) : _array(NULL), _size(0)
 {
     std::cout << "Default constructor called" << std::endl;
 }
@@ -31,7 +30,6 @@ Array<T>::Array(const Array &other) : _array(new T[other._size]), _size(other._s
         _array[i] = other._array[i];
     }
 	std::cout << "Copy constructor called" << std::endl;
-
 }
 
 template <typename T>
