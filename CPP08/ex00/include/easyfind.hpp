@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 09:23:25 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/15 15:43:34 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/16 10:59:53 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <exception>
+#include <algorithm>
 
 class NotFound : public std::exception
 {
@@ -25,16 +26,12 @@ class NotFound : public std::exception
         }
 };
 
-
 template <typename T>
-int easyfind(T &container, int value)
+int easyfind(T &c, int value)
 {
-    for(typename Container::iterator it = c.begin(); it != c.end(); it++)
-    {
-        if (*it == value)
-            return (value);
-    }
-    throw NotFound();
+    if ((std::find(c.begin(), c.end(), value)) == c.end())
+        throw NotFound();
+    return (value);
 }
 
 #endif

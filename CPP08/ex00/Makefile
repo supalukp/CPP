@@ -6,7 +6,7 @@
 #    By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/19 16:27:13 by spunyapr          #+#    #+#              #
-#    Updated: 2025/12/15 15:43:45 by spunyapr         ###   ########.fr        #
+#    Updated: 2025/12/16 10:38:46 by spunyapr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -I$(INC_DIR)
 SRC_DIR = src
 INC_DIR = include
 BUILD_DIR = build
-NAME = array
+NAME = easyfind
 SRCS = $(SRC_DIR)/main.cpp
 HEADERS = $(INC_DIR)/easyfind.hpp
 OBJS := $(patsubst $(SRC_DIR)/%.cpp,$(BUILD_DIR)/%.o,$(SRCS))
