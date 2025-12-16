@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 09:23:22 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/16 11:00:36 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/16 11:01:48 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,7 +188,7 @@ int main(void)
             std::cerr << e.what() << '\n';
         }
     }
-        std::cout << "\n--- End of the test ---" << std::endl;
+    std::cout << "\n--- End of the test ---" << std::endl;
 
     return (0);
 }
