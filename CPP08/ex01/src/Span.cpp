@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 11:04:09 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/17 11:44:36 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/17 13:16:51 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ Span::Span(unsigned int n) : _n(n)
 {
     std::cout << "Constructor with parameter called" << std::endl;
 }
+
 Span::Span(const Span &other) : _n(other._n)
 {
     std::cout << "Copy constructor called" << std::endl;
@@ -59,7 +60,7 @@ int Span::shortestSpan(void)
     int min = tmp[1] - tmp[0];
     for (std::vector<int>::iterator it = tmp.begin(); it + 1 != tmp.end(); it++)
     {
-        if (*(it + 1) - *it < min)
+        if ((*(it + 1) - *it) < min)
             min = *(it + 1) - *it;
     }
     return (min);
@@ -76,8 +77,10 @@ int Span::longestSpan(void)
 
 void Span::printElements(void)
 {
+    std::cout << "Elements: ";
     for (std::vector<int>::iterator i = _c.begin(); i != _c.end(); i++)
-        std::cout << *i << std::endl;
+        std::cout << *i << " ";
+    std::cout << std::endl;
 }
 
 const char* Span::NotEnoughElements::what() const throw()
