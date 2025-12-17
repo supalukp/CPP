@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 11:04:09 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/16 12:38:51 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/17 11:44:36 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ Span::~Span(void)
 
 void Span::addNumber(int value)
 {
-    std::cout << "size: " << _c.size() << std::endl;
     if (_c.size() < _n)
         _c.push_back(value);
     else
@@ -52,16 +51,36 @@ void Span::addNumber(int value)
 
 int Span::shortestSpan(void)
 {
-    
+    if (_c.size() < 2)
+        throw NotEnoughElements();
+    std::vector<int> tmp(_c.size());
+    std::copy(_c.begin(), _c.end(), tmp.begin());
+    std::sort(tmp.begin(), tmp.end());
+    int min = tmp[1] - tmp[0];
+    for (std::vector<int>::iterator it = tmp.begin(); it + 1 != tmp.end(); it++)
+    {
+        if (*(it + 1) - *it < min)
+            min = *(it + 1) - *it;
+    }
+    return (min);
 }
 
 int Span::longestSpan(void)
 {
-    
+    if (_c.size() < 2)
+        throw NotEnoughElements();
+    std::vector<int>::iterator max = std::max_element(_c.begin(), _c.end());
+    std::vector<int>::iterator min = std::min_element(_c.begin(), _c.end());
+    return (*max - *min);
 }
 
 void Span::printElements(void)
 {
     for (std::vector<int>::iterator i = _c.begin(); i != _c.end(); i++)
         std::cout << *i << std::endl;
+}
+
+const char* Span::NotEnoughElements::what() const throw()
+{
+    return ("Not enough elements to compare");
 }
