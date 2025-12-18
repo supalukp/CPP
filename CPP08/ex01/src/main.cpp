@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 11:05:12 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/18 16:33:20 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/18 16:39:34 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,6 @@ int main(void)
             std::cerr << "Catch Exception: " << e.what() << std::endl;
         }
         std::cout << std::endl;
-    
     }
     return (0);
 }
