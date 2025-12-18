@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 11:04:09 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/17 13:16:51 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/18 14:57:08 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Span::Span(const Span &other) : _n(other._n)
 
 Span& Span::operator=(const Span &other)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    std::cout << "Copy assignment operator called" << std::endl;
     if (this != &other)
     {
         this->_n = other._n;   
