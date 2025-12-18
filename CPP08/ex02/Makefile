@@ -6,7 +6,7 @@
 #    By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/19 16:27:13 by spunyapr          #+#    #+#              #
-#    Updated: 2025/12/17 14:59:59 by spunyapr         ###   ########.fr        #
+#    Updated: 2025/12/18 14:05:32 by spunyapr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ INC_DIR = include
 BUILD_DIR = build
 NAME = MutantStack
 SRCS = 	$(SRC_DIR)/main.cpp
-HEADERS = $(INC_DIR)/MutantStack.hpp
+HEADERS = 	$(INC_DIR)/MutantStack.hpp \
+			$(INC_DIR)/MutantStack.tpp
 TPPS = $(INC_DIR)/MutantStack.tpp
 OBJS := $(patsubst $(SRC_DIR)/%.cpp,$(BUILD_DIR)/%.o,$(SRCS))
 
@@ -29,7 +30,7 @@ all: $(NAME)
 $(NAME): $(OBJS) $(HEADERS) Makefile
 	$(CPP) $(CPPFLAGS) -o $@ $(OBJS)
 
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp $(HEADERS) $(TPP)| $(BUILD_DIR)
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp $(HEADERS)| $(BUILD_DIR)
 	$(CPP) $(CPPFLAGS) -c $< -o $@
 
 $(BUILD_DIR):
