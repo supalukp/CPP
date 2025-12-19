@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 09:23:22 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/16 11:01:48 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/19 09:26:46 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,32 +33,33 @@ int main(void)
         for (std::vector<int>::iterator it = vec.begin(); it != vec.end(); ++it)
             std::cout << *it << " ";
         std::cout << std::endl;
-        
+
         std::cout << "\n--- Test: Findable ---" << std::endl;
         int x = 20;
         try
         {
             std::cout << "Try to find " << x << std::endl;
-            if (easyfind(vec, x) == x)
-                std::cout << "easyfind() found " << x  << std::endl;
+            std::vector<int>::iterator it = easyfind(vec, x);
+            std::cout << "easyfind() found " << *it << std::endl;
         }
-        catch(const std::exception& e)
+        catch (const std::exception& e)
         {
-            std::cerr << e.what() << '\n';
+            std::cerr << e.what() << std::endl;
         }
+
         std::cout << "\n--- Test: Not findable ---" << std::endl;
         x = 80;
         try
         {
             std::cout << "Try to find " << x << std::endl;
-            if (easyfind(vec, x) == x)
-                std::cout << "easyfind() found " << x  << std::endl;
+            easyfind(vec, x);
         }
-        catch(const std::exception& e)
+        catch (const std::exception& e)
         {
-            std::cerr << e.what() << '\n';
+            std::cerr << e.what() << std::endl;
         }
     }
+
     std::cout << "\n==============================" << std::endl;
     std::cout << "        TEST: Deque    " << std::endl;
     std::cout << "==============================" << std::endl;
@@ -74,32 +75,33 @@ int main(void)
         for (std::deque<int>::iterator it = deq.begin(); it != deq.end(); ++it)
             std::cout << *it << " ";
         std::cout << std::endl;
-        
+
         std::cout << "\n--- Test: Findable ---" << std::endl;
         int x = 3;
         try
         {
             std::cout << "Try to find " << x << std::endl;
-            if (easyfind(deq, x) == x)
-                std::cout << "easyfind() found " << x  << std::endl;
+            std::deque<int>::iterator it = easyfind(deq, x);
+            std::cout << "easyfind() found " << *it << std::endl;
         }
-        catch(const std::exception& e)
+        catch (const std::exception& e)
         {
-            std::cerr << e.what() << '\n';
+            std::cerr << e.what() << std::endl;
         }
+
         std::cout << "\n--- Test: Not findable ---" << std::endl;
         x = 6;
         try
         {
             std::cout << "Try to find " << x << std::endl;
-            if (easyfind(deq, x) == x)
-                std::cout << "easyfind() found " << x  << std::endl;
+            easyfind(deq, x);
         }
-        catch(const std::exception& e)
+        catch (const std::exception& e)
         {
-            std::cerr << e.what() << '\n';
+            std::cerr << e.what() << std::endl;
         }
     }
+
     std::cout << "\n==============================" << std::endl;
     std::cout << "        TEST: List    " << std::endl;
     std::cout << "==============================" << std::endl;
@@ -115,38 +117,41 @@ int main(void)
         for (std::list<int>::iterator it = list.begin(); it != list.end(); ++it)
             std::cout << *it << " ";
         std::cout << std::endl;
-        
+
         std::cout << "\n--- Test: Findable ---" << std::endl;
         int x = 44515;
         try
         {
             std::cout << "Try to find " << x << std::endl;
-            if (easyfind(list, x) == x)
-                std::cout << "easyfind() found " << x  << std::endl;
+            std::list<int>::iterator it = easyfind(list, x);
+            std::cout << "easyfind() found " << *it << std::endl;
         }
-        catch(const std::exception& e)
+        catch (const std::exception& e)
         {
-            std::cerr << e.what() << '\n';
+            std::cerr << e.what() << std::endl;
         }
+
         std::cout << "\n--- Delete last element" << std::endl;
         list.pop_back();
+
         std::cout << "Element inside list = ";
         for (std::list<int>::iterator it = list.begin(); it != list.end(); ++it)
             std::cout << *it << " ";
         std::cout << std::endl;
+
         std::cout << "\n--- Test: Not findable ---" << std::endl;
         x = 44515;
         try
         {
             std::cout << "Try to find " << x << std::endl;
-            if (easyfind(list, x) == x)
-                std::cout << "easyfind() found " << x  << std::endl;
+            easyfind(list, x);
         }
-        catch(const std::exception& e)
+        catch (const std::exception& e)
         {
-            std::cerr << e.what() << '\n';
+            std::cerr << e.what() << std::endl;
         }
     }
+
     std::cout << "\n==============================" << std::endl;
     std::cout << "        TEST: Set    " << std::endl;
     std::cout << "==============================" << std::endl;
@@ -162,33 +167,33 @@ int main(void)
         for (std::set<int>::iterator it = set.begin(); it != set.end(); ++it)
             std::cout << *it << " ";
         std::cout << std::endl;
-        
+
         std::cout << "\n--- Test: Findable ---" << std::endl;
         int x = 5;
         try
         {
             std::cout << "Try to find " << x << std::endl;
-            if (easyfind(set, x) == x)
-                std::cout << "easyfind() found " << x  << std::endl;
+            std::set<int>::iterator it = easyfind(set, x);
+            std::cout << "easyfind() found " << *it << std::endl;
         }
-        catch(const std::exception& e)
+        catch (const std::exception& e)
         {
-            std::cerr << e.what() << '\n';
+            std::cerr << e.what() << std::endl;
         }
+
         std::cout << "\n--- Test: Not findable ---" << std::endl;
         x = 10;
         try
         {
             std::cout << "Try to find " << x << std::endl;
-            if (easyfind(set, x) == x)
-                std::cout << "easyfind() found " << x  << std::endl;
+            easyfind(set, x);
         }
-        catch(const std::exception& e)
+        catch (const std::exception& e)
         {
-            std::cerr << e.what() << '\n';
+            std::cerr << e.what() << std::endl;
         }
     }
-    std::cout << "\n--- End of the test ---" << std::endl;
 
+    std::cout << "\n--- End of the test ---" << std::endl;
     return (0);
 }
