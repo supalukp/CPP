@@ -6,7 +6,7 @@
 #    By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/19 16:27:13 by spunyapr          #+#    #+#              #
-#    Updated: 2025/12/18 14:05:32 by spunyapr         ###   ########.fr        #
+#    Updated: 2025/12/19 11:01:26 by spunyapr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,6 @@ NAME = MutantStack
 SRCS = 	$(SRC_DIR)/main.cpp
 HEADERS = 	$(INC_DIR)/MutantStack.hpp \
 			$(INC_DIR)/MutantStack.tpp
-TPPS = $(INC_DIR)/MutantStack.tpp
 OBJS := $(patsubst $(SRC_DIR)/%.cpp,$(BUILD_DIR)/%.o,$(SRCS))
 
 all: $(NAME)
