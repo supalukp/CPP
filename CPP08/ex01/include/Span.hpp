@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 11:04:12 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/19 09:30:06 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/19 09:33:19 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ class Span
         template <typename Iterator>
         void addNumber(Iterator begin, Iterator end)
         {
-            unsigned int add_size = std::distance(begin, end);
+            unsigned int add_size = static_cast<unsigned int>(std::distance(begin, end));
             if (_c.size() + add_size > _n)
-                throw std::length_error("The range is too big too add number");
+                throw std::length_error("Too many elements to add");
             for (Iterator it = begin; it != end; it++)
                 addNumber(*it);
         }
@@ -50,7 +50,7 @@ class Span
         int     longestSpan(void);
         
         // print elements 
-        void    printElements(void);
+        void    printElements(void) const;
         
         // exception
         class NotEnoughElements : public std::exception 

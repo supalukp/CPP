@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 11:04:09 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/18 16:02:02 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/19 09:33:43 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void Span::addNumber(int value)
     if (_c.size() < _n)
         _c.push_back(value);
     else
-        throw std::out_of_range("Out of range");
+        throw std::out_of_range("Span is already full");
 }
 
 int Span::shortestSpan(void)
@@ -76,10 +76,10 @@ int Span::longestSpan(void)
     return (*max - *min);
 }
 
-void Span::printElements(void)
+void Span::printElements(void) const
 {
     std::cout << "Elements: ";
-    for (std::vector<int>::iterator i = _c.begin(); i != _c.end(); i++)
+    for (std::vector<int>::const_iterator i = _c.begin(); i != _c.end(); i++)
         std::cout << *i << " ";
     std::cout << std::endl;
 }
