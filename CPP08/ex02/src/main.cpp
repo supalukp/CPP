@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 13:23:14 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/18 15:38:32 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/19 09:43:54 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,7 @@ int main(void)
         std::cout << "\n---- Test assignment operators ----" << std::endl;
         b = a;
         printElements(b);
-        
-        std::cout << "\n---- Test destructor ----" << std::endl;
+            
     }
     std::cout << "\n==============================" << std::endl;
     std::cout << "        Stack function    " << std::endl;
