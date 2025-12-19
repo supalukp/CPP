@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 11:05:12 by spunyapr          #+#    #+#             */
-/*   Updated: 2025/12/18 16:39:34 by spunyapr         ###   ########.fr       */
+/*   Updated: 2025/12/19 09:36:03 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main(void)
         Span def = Span();
         
         std::cout << "\n---- Test constructor with parameter ----" << std::endl;
-        Span sp = Span(5);
+        Span sp(5);
         try
         {
             sp.addNumber(1);
@@ -52,7 +52,7 @@ int main(void)
     std::cout << "        Member function    " << std::endl;
     std::cout << "==============================" << std::endl;
     {
-        Span sp = Span(6);
+        Span sp(6);
         try
         {
             std::cout << "\n---- Test: addNumber ----" << std::endl;
@@ -84,7 +84,7 @@ int main(void)
         a.push_back(2);
         a.push_back(3);
     
-        Span copy = Span(6);
+        Span copy(6);
         try
         {
             copy.addNumber(10);
