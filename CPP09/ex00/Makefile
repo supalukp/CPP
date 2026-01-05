@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+         #
+#    By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/19 16:27:13 by spunyapr          #+#    #+#              #
-#    Updated: 2026/01/02 21:39:21 by spunyapr         ###   ########.fr        #
+#    Updated: 2026/01/05 13:30:09 by spunyapr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ INC_DIR = include
 BUILD_DIR = build
 NAME = btc
 SRCS = 	$(SRC_DIR)/main.cpp \
-		$(SRC_DIR)/BitcoinExchange.cpp
+		$(SRC_DIR)/BitcoinExchange.cpp \
+		$(SRC_DIR)/inputCheck.cpp
 HEADERS = $(INC_DIR)/BitcoinExchange.hpp
 OBJS := $(patsubst $(SRC_DIR)/%.cpp,$(BUILD_DIR)/%.o,$(SRCS))
 

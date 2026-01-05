@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 15:23:28 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/01/03 22:45:38 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/01/05 13:25:03 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,19 @@
 
 BitcoinExchange::BitcoinExchange(void) { }
 
-// BitcoinExchange::BitcoinExchange(const BitcoinExchange& other)
-// {
-//     if (this )
-// }
+BitcoinExchange::BitcoinExchange(const BitcoinExchange& other)
+{
+    this->_exchangeRates = other._exchangeRates;
+}
 
-// BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other)
-// {
-
-// }
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other)
+{
+    if(this != &other)
+    {
+        this->_exchangeRates = other._exchangeRates;
+    }
+    return (*this);
+}
 
 BitcoinExchange::~BitcoinExchange(void) { }
 
@@ -63,64 +67,6 @@ int BitcoinExchange::loadData(const std::string& filename)
     return (0);
 }
 
-static bool badDateFormat(const std::string& date)
-{
-    if (date.size() != 10)
-        return (true);
-
-    if (date[4] != '-' || date[7] != '-')
-        return (true);
-        
-    for (int i = 0; i < 10; i++) 
-    {
-        if (i == 4 || i == 7)
-            continue;
-        if (!std::isdigit(date[i]))
-            return (true);
-    }
-    return (false);
-}
-
-static bool checkDate(const std::string& date)
-{
-    // check date format 0000-00-00
-    if (badDateFormat(date)) 
-    {
-        std::cerr << "Error: bad date format => " << date << std::endl;
-        return (false);
-    }
-
-    int year  = std::atoi(date.substr(0, 4).c_str());
-    int month = std::atoi(date.substr(5, 2).c_str());
-    int day   = std::atoi(date.substr(8, 2).c_str());
-
-    // check year from 2009
-    if (year < 2009)
-    {
-        std::cerr << "Error: date before exist => " << date << std::endl;
-        return (false);
-    }
-    // check current date
-    std::time_t now = std::time(NULL);
-    std::tm *ltm = std::localtime(&now);
-    int currentYear = 1900 + ltm->tm_year;
-    if (year > currentYear)
-    {
-        std::cerr << "Error: future date => " << date << std::endl;
-        return (false);
-    }
-    // check month 01-12
-    if (month < 1 || month > 12)
-    {
-        std::cerr << "Error: month not between(1-12) => " << date << std::endl;
-        return (false);
-    }
-    std::cout << month << day << std::endl;
-    // check date (depend on month & leap year)
-    
-    return (true);
-}
-
 int BitcoinExchange::getInput(const std::string& filename)
 {
     std::ifstream infile;
@@ -148,13 +94,18 @@ int BitcoinExchange::getInput(const std::string& filename)
             std::cerr << "Error: bad input => " << line << std::endl;
             continue;
         }
-        std::string date  = line.substr(0, index-1);
+        std::string date  = line.substr(0, index - 1);
+        std::string value = line.substr(index + 2);
+        if (!isValidInputFormat(date, value))
+        {
+            std::cerr << "Error: bad input => " << line << std::endl;
+            continue;
+        }
         // check date 
-        if (checkDate(date) == false)
+        if (!isValidDate(date))
         {
             continue;
         }
-        std::string value = line.substr(index + 1);
         // check value
         double dValue = atof(value.c_str());
         
