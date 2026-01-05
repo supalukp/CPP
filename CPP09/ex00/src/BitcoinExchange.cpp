@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 15:23:28 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/01/05 16:44:49 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/01/05 16:54:33 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int BitcoinExchange::loadData(const std::string& filename)
     infile.open(filename.c_str());
     if (!infile.is_open())
     {
-        std::cerr << "Error: opening infile\n";
+        std::cerr << "Error: could not open file.\n";
         return (1);
     }
     std::string line;
@@ -74,7 +74,7 @@ int BitcoinExchange::getInput(const std::string& filename)
     infile.open(filename.c_str());
     if (!infile.is_open())
     {
-        std::cerr << "Error: opening infile\n";
+        std::cerr << "Error: could not open file.\n";
         return (1);
     }
     std::string line;
