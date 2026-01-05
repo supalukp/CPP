@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 15:23:26 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/01/05 13:28:25 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/01/05 16:43:44 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
 #include <algorithm> 
 #include <iomanip>
 #include <ctime>
+#include <cerrno>
+#include <climits>
+#include <cfloat>
 
 class BitcoinExchange 
 {
@@ -38,7 +41,8 @@ class BitcoinExchange
         
 };
 
-bool isValidInputFormat(const std::string& date, const std::string& value);
 bool isValidDate(const std::string& date);
+bool isAllDigit(const std::string& str);
+bool isPosibleCharFloat(const std::string& str);
 
 #endif

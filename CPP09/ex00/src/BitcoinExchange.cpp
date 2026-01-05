@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 15:23:28 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/01/05 13:25:03 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/01/05 16:44:49 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,34 +96,65 @@ int BitcoinExchange::getInput(const std::string& filename)
         }
         std::string date  = line.substr(0, index - 1);
         std::string value = line.substr(index + 2);
-        if (!isValidInputFormat(date, value))
+        if (date.size() != 10)
         {
             std::cerr << "Error: bad input => " << line << std::endl;
             continue;
         }
-        // check date 
         if (!isValidDate(date))
         {
             continue;
         }
-        // check value
-        double dValue = atof(value.c_str());
+        size_t res = value.find('.');
+        float fValue;
+        if (res != std::string::npos)
+        {
+            if (!isPosibleCharFloat(value))
+            {
+                std::cerr << "Error: bad input => " << line << std::endl;
+                continue;
+            }
+            errno = 0;
+            char *end;
+            fValue = std::strtof(value.c_str(), &end);
+            if (end == value.c_str() || errno == ERANGE || fValue < 1.0f || fValue > 1000.0f)
+            {
+                std::cerr << "Error: value out of range => " << line << std::endl;
+                continue;
+            }
+        }
+        else
+        {
+            if (!isAllDigit(value))
+            {
+                std::cerr << "Error: bad input => " << line << std::endl;
+                continue;
+            }
+            errno = 0;
+            char *end;
+            long lValue = std::strtol(value.c_str(), &end, 10);
+            if (end == value.c_str() || errno == ERANGE || lValue > 1000 || lValue < 1)
+            {
+                std::cerr << "Error: value out of range => " << line << std::endl;
+                continue;
+            }
+            fValue = static_cast<float>(lValue);
+        }
         
-        // calculate
         std::map<std::string, double>::iterator it;
         it = _exchangeRates.find(date);
         if (it != _exchangeRates.end())
         {
-            double newCal = dValue * it->second;
-            std::cout << date << " => " << dValue << " = " << newCal << std::endl;
+            double newCal = fValue * it->second;
+            std::cout << date << " => " << fValue << " = " << newCal << std::endl;
         }
         else 
         {
             it = _exchangeRates.lower_bound(date);
             if (it != _exchangeRates.begin())
                 it--;
-            double newCal = dValue * it->second;
-            std::cout << date << " => " << dValue << " = " << newCal << std::endl;
+            double newCal = fValue * it->second;
+            std::cout << date << " => " << fValue << " = " << newCal << std::endl;
         }
     }
     return (0);
