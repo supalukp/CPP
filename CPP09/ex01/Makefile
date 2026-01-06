@@ -6,7 +6,7 @@
 #    By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/19 16:27:13 by spunyapr          #+#    #+#              #
-#    Updated: 2026/01/05 16:57:36 by spunyapr         ###   ########.fr        #
+#    Updated: 2026/01/06 12:04:40 by spunyapr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,9 +21,8 @@ INC_DIR = include
 BUILD_DIR = build
 NAME = RPN
 SRCS = 	$(SRC_DIR)/main.cpp \
-		$(SRC_DIR)/BitcoinExchange.cpp \
-		$(SRC_DIR)/inputCheck.cpp
-HEADERS = $(INC_DIR)/BitcoinExchange.hpp
+		$(SRC_DIR)/RPN.cpp 
+HEADERS = $(INC_DIR)/RPN.hpp
 OBJS := $(patsubst $(SRC_DIR)/%.cpp,$(BUILD_DIR)/%.o,$(SRCS))
 
 all: $(NAME)

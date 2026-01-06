@@ -6,22 +6,15 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 17:08:02 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/01/05 17:40:11 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/01/06 12:06:02 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RPN_HPP
-#define RPN_HPP
+#include "RPN.hpp"
 
-#include <iostream>
-#include <stack>
-
-class RPN
+int main(int ac, char **av)
 {
-    private:
-        
-    public:
-    
-};
-
-#endif
+    (void)ac;
+    (void)av;
+    return (0);
+}
