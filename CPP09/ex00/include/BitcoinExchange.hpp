@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 15:23:26 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/01/05 16:43:44 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/01/06 14:22:08 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 #include <cerrno>
 #include <climits>
 #include <cfloat>
+#include <cctype>
 
 class BitcoinExchange 
 {
