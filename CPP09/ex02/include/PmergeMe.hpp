@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:34:03 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/01/06 17:21:28 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/01/07 16:28:23 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,13 @@
 
 class PmergeMe
 {
-    
+    private:
+
+    public:
+        PmergeMe(void);
+        PmergeMe(const PmergeMe& other);
+        PmergeMe& operator=(const PmergeMe& other);
+        ~PmergeMe(void);
 };
 
 #endif

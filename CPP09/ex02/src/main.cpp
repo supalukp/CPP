@@ -6,7 +6,15 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:34:11 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/01/06 16:34:12 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/01/07 16:45:42 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "PmergeMe.hpp"
+
+int main(int ac, char **av)
+{
+    (void)av;
+    (void)ac;
+    return (0);
+}
