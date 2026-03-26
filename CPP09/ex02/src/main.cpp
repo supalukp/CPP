@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:34:11 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/01/09 15:16:36 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/03/26 13:59:23 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 int main(int ac, char **av)
 {
     // check input
+    if (ac < 2)
+        return (1);
     if (!isValidInput(ac, av))
     {
         std::cerr << "Error" << std::endl;   
@@ -31,6 +33,7 @@ int main(int ac, char **av)
     }
 
     vec.printMain();
+    vec.orderPair();
     
     return (0);
 }

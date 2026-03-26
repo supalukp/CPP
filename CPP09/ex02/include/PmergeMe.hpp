@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:34:03 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/01/09 18:07:28 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/03/26 13:59:36 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,14 @@ class PmergeMe
     private:
         // std::deque<int> _d_main;
         // std::deque<int> _d_pend;
+        std::vector<int> _v_input;
+        std::vector<std::pair<int, int> >  _v_pairs;
+        // std::vector<int> _v_main;
+        // std::vector<int> _v_pending;
+        bool _v_leftover;
+        int _v_left_value;
+        // int _v_level;
+        
         
     public:
         PmergeMe(void);
@@ -38,7 +46,8 @@ class PmergeMe
         void addValueToMain(int value);
         void printMain();
 
-        std::vector<int> getWinnerList(std::vector<int> list);
+        void orderPair();
+        void printData(void);
 };
 
 bool isValidInput(int ac, char **av);
