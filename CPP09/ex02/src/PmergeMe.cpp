@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:34:07 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/03/26 15:31:45 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/04/06 12:36:55 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,20 @@ void PmergeMe::printData(void)
  * 4. Return Winner list
  */
 
+void printList(std::vector<std::pair<int,int> > _v_pairs)
+{
+    std::cout << "list now: ";
+    for (std::vector<std::pair<int,int> >::iterator itp = _v_pairs.begin(); itp != _v_pairs.end(); itp++)
+    {
+        std::cout << "(" << itp->first << "," << itp->second << ") ";
+    }
+    std::cout << std::endl;
+}
+
 void PmergeMe::orderPair(void)
 {
+    _v_pairs.clear();
+    
     if (_v_input.size() % 2 == 1)
     {
         _v_leftover = true;
@@ -96,47 +108,29 @@ void PmergeMe::orderPair(void)
     }
 
     printData();
-
-    // for (std::vector<std::pair<int,int> >::iterator itp = _v_pairs.begin(); itp != _v_pairs.end() && itp + 1 != _v_pairs.end(); itp += 2)
-    // {
-    //     if (itp->second > (itp+1)->second)
-    //     {
-    //         std::pair<int,int> tmp = *itp;
-    //         *itp = *(itp + 1);
-    //         *(itp + 1) = tmp;
-    //     }
-    // }
-    std::cout << "list now1: ";
-    for (std::vector<std::pair<int,int> >::iterator itp = _v_pairs.begin(); itp != _v_pairs.end(); itp++)
-    {
-        std::cout << "(" << itp->first << "," << itp->second << ") ";
-    }
-    std::cout << std::endl;
-
+    printList(_v_pairs);
     
-    // size_t blockSize = 1;
-    // while (blockSize < _v_pairs.size())
-    // {
-    //     for (int i = 0; i + (2 * blockSize) - 1 < _v_pairs.size(); i += blockSize * 2)
-    //     {
-    //         if (_v_pairs[i + blockSize - 1].second > _v_pairs[i + 2 * blockSize - 1].second)
-    //         {
-    //             for (int j = blockSize; j > 0; j--)
-    //             {
-    //                 std::pair<int,int> tmp = _v_pairs[i + blockSize - 1 - j];
-    //                 _v_pairs[i + blockSize - 1 - j] = _v_pairs[i + 2 * blockSize - 1 - j];
-    //                 _v_pairs[i + 2 * blockSize - 1 - j] = tmp;   
-    //             }
-    //         }
-    //     }
-    //     std::cout << "list now: ";
-    //     for (std::vector<std::pair<int,int> >::iterator itp = _v_pairs.begin(); itp != _v_pairs.end(); itp++)
-    //     {
-    //         std::cout << "(" << itp->first << "," << itp->second << ") ";
-    //     }
-    //     std::cout << std::endl;
-    //     blockSize *= 2;
-    // }
+    size_t blockSize = 1;
+    while (blockSize < _v_pairs.size())
+    {
+        for (size_t i = 0; i + (2 * blockSize) <= _v_pairs.size(); i += (blockSize * 2))
+        {
+            size_t leftEnd = i + blockSize - 1;
+            size_t rightEnd = i + (2 * blockSize) - 1;
+
+            if (_v_pairs[leftEnd].second > _v_pairs[rightEnd].second)
+            {
+                for (size_t j = 0; j < blockSize; j++)
+                {
+                    std::pair<int, int> tmp = _v_pairs[i + j];
+                    _v_pairs[i + j] = _v_pairs[i + blockSize + j];
+                    _v_pairs[i + blockSize + j] = tmp;
+                }
+            }
+        }
+        printList(_v_pairs);
+        blockSize *= 2;
+    }
     
     printData();
 
