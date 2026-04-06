@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:34:07 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/04/06 12:36:55 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/04/06 14:24:39 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,15 +90,15 @@ void printList(std::vector<std::pair<int,int> > _v_pairs)
 }
 
 void PmergeMe::orderPair(void)
-{
-    _v_pairs.clear();
-    
+{    
+    std::cout << "input size: " << _v_input.size() << std::endl;
+    // 1. check left over before pair + store it
     if (_v_input.size() % 2 == 1)
     {
         _v_leftover = true;
         _v_left_value = _v_input.back();
     }
-    
+    // 2. compare position i and (i+1) if (i+1) bigger than i swap position before push back a pair to _v_pairs (Here is Recursion level 1)
     for (std::vector<int>::iterator it = _v_input.begin(); it != _v_input.end() && it + 1 != _v_input.end(); it += 2)
     {
         if (*it > *(it+1))
@@ -110,9 +110,12 @@ void PmergeMe::orderPair(void)
     printData();
     printList(_v_pairs);
     
+    int level = 1;
     size_t blockSize = 1;
     while (blockSize < _v_pairs.size())
     {
+        std::cout << "blocksize: " << blockSize << std::endl;
+        level++;
         for (size_t i = 0; i + (2 * blockSize) <= _v_pairs.size(); i += (blockSize * 2))
         {
             size_t leftEnd = i + blockSize - 1;
@@ -128,17 +131,12 @@ void PmergeMe::orderPair(void)
                 }
             }
         }
+        std::cout << "level: " << level << std::endl;
         printList(_v_pairs);
         blockSize *= 2;
+        if (blockSize * 2 > _v_pairs.size())
+            break;
     }
-    
     printData();
-
-    std::cout << "list now: ";
-    for (std::vector<std::pair<int,int> >::iterator itp = _v_pairs.begin(); itp != _v_pairs.end(); itp++)
-    {
-        std::cout << "(" << itp->first << "," << itp->second << ") ";
-    }
-    std::cout << std::endl;
 }
 
