@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:34:03 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/03/26 13:59:36 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/04/09 21:42:14 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,13 @@ class PmergeMe
 
         void orderPair();
         void printData(void);
+        int getPairPerBlock(int level);
+        int getBlockEnd(int blockStart, int pairPerBlock);
+        int getBlockKey(int blockStart, int pairPerBlock);
+        std::vector<int> buildBlocks(int pairSize, int pairPerBlock);
+        void setMainPend(std::vector<int> &main, std::vector<int> &pend, std::vector<int> &blocks);
+        int getBoundPartner(int bStart, int pairPerBlock);
+        int getPositionBoundInMain(std::vector<int> &main, int aStart);
 };
 
 bool isValidInput(int ac, char **av);
