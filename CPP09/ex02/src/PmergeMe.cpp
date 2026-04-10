@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:34:07 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/04/09 21:41:40 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/04/10 10:59:16 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,18 +147,28 @@ void PmergeMe::orderPair(void)
         std::cout << "pairPerBlock: " << getPairPerBlock(i) << std::endl;
         std::vector<int> blocks = buildBlocks(_v_pairs.size(), getPairPerBlock(i));
         std::cout << "blockSize(): " << blocks.size() << std::endl;
+        std::vector<int> main;
+        std::vector<int> pend;
+        setMainPend(main, pend, blocks);
         for (size_t j = 0; j < blocks.size(); j++)
         {
             std::cout << "\n------\n";
             std::cout << "blockStart: " << blocks[j] << std::endl;
             std::cout << "blockEnd: " << getBlockEnd(blocks[j], getPairPerBlock(i)) << std::endl;
             std::cout << "key: " << getBlockKey(blocks[j], getPairPerBlock(i)) << std::endl;
+
+            if (j != 0 && j % 2 == 0)
+            {
+                std::cout << "b_i: " << blocks[j] << std::endl;
+                std::cout << "a_i value: " << getBoundPartner(blocks[j], getPairPerBlock(i)) << std::endl;
+                std::cout << "a_i position: " << getPositionBoundInMain(main, getBoundPartner(blocks[j], getPairPerBlock(i))) << std::endl;
+            }
         }
         
-        std::vector<int> main;
-        std::vector<int> pend;
+        // std::vector<int> main;
+        // std::vector<int> pend;
 
-        setMainPend(main, pend, blocks);
+        // setMainPend(main, pend, blocks);
 
         std::cout << "main: ";
         for (size_t i = 0; i < main.size(); i++)
@@ -218,18 +228,24 @@ void PmergeMe::setMainPend(std::vector<int> &main, std::vector<int> &pend, std::
     }
 }
 
+// return (-1) mean no partner
 int PmergeMe::getBoundPartner(int bStart, int pairPerBlock)
 {
-    int aStart = bStart + pairPerBlock;
+    size_t aStart = bStart + pairPerBlock;
+    if (aStart + pairPerBlock > _v_pairs.size())
+        return (-1);
     return (aStart);
 }
 
 int PmergeMe::getPositionBoundInMain(std::vector<int> &main, int aStart)
 {
+    if (aStart == -1)
+        return (-1);
     for (size_t i = 0; i < main.size(); i++)
     {
         if (main[i] == aStart)
             return (i);
     }
-    return (0);
+    return (-1);
 }
+
