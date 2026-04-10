@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:34:03 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/04/09 21:42:14 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/04/10 11:54:48 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ class PmergeMe
         void setMainPend(std::vector<int> &main, std::vector<int> &pend, std::vector<int> &blocks);
         int getBoundPartner(int bStart, int pairPerBlock);
         int getPositionBoundInMain(std::vector<int> &main, int aStart);
+        int getInsertPosition(std::vector<int> &main, int bStart, int pairPerBlock);
+        int binarySearch(std::vector<int> &main, int key, int left, int right, int pairPerBlock);
 };
 
 bool isValidInput(int ac, char **av);

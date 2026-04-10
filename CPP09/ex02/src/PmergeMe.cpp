@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:34:07 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/04/10 10:59:16 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/04/10 13:50:09 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,6 +150,15 @@ void PmergeMe::orderPair(void)
         std::vector<int> main;
         std::vector<int> pend;
         setMainPend(main, pend, blocks);
+        std::cout << "main: ";
+        for (size_t i = 0; i < main.size(); i++)
+            std::cout << main[i] << " ";
+        std::cout << std::endl;
+
+        std::cout << "pend: ";
+        for (size_t i = 0; i < pend.size(); i++)
+            std::cout << pend[i] << " ";
+        std::cout << std::endl;
         for (size_t j = 0; j < blocks.size(); j++)
         {
             std::cout << "\n------\n";
@@ -165,20 +174,26 @@ void PmergeMe::orderPair(void)
             }
         }
         
+        std::cout << "++++++++++++++++\n";
+        for (size_t k = 0; k < pend.size(); k++)
+        {
+            std::cout << "pend " << k << " value: " << pend[k] << " : insert bound is " << getBoundPartner(pend[k], getPairPerBlock(i)) << std::endl;
+            std::cout << "insert position is: " << getInsertPosition(main, pend[k], getPairPerBlock(i)) << std::endl;
+        }
         // std::vector<int> main;
         // std::vector<int> pend;
 
         // setMainPend(main, pend, blocks);
 
-        std::cout << "main: ";
-        for (size_t i = 0; i < main.size(); i++)
-            std::cout << main[i] << " ";
-        std::cout << std::endl;
+        // std::cout << "main: ";
+        // for (size_t i = 0; i < main.size(); i++)
+        //     std::cout << main[i] << " ";
+        // std::cout << std::endl;
 
-        std::cout << "pend: ";
-        for (size_t i = 0; i < pend.size(); i++)
-            std::cout << pend[i] << " ";
-        std::cout << std::endl;
+        // std::cout << "pend: ";
+        // for (size_t i = 0; i < pend.size(); i++)
+        //     std::cout << pend[i] << " ";
+        // std::cout << std::endl;
 
     }
 }
@@ -249,3 +264,31 @@ int PmergeMe::getPositionBoundInMain(std::vector<int> &main, int aStart)
     return (-1);
 }
 
+int PmergeMe::binarySearch(std::vector<int> &main, int key, int left, int right, int pairPerBlock)
+{
+    while (left <= right)
+    {
+        // std::cout << "left = " << left << " right = " << right << std::endl;
+        int mid = left + ((right - left) / 2);
+        int key_main_mid = getBlockKey(main[mid], pairPerBlock);
+        if (key == key_main_mid)
+            return (mid + 1);
+        else if (key > key_main_mid)
+            left = mid + 1;
+        else
+            right = mid - 1;
+    }
+    return (left);
+}
+
+int PmergeMe::getInsertPosition(std::vector<int> &main, int bStart, int pairPerBlock)
+{
+    int aStart = getBoundPartner(bStart, pairPerBlock);
+    int bound = getPositionBoundInMain(main, aStart);
+    int b_key = getBlockKey(bStart, pairPerBlock);
+    int main_size = static_cast<int>(main.size());
+    if (bound == -1)
+        bound = main_size;
+    int pos = binarySearch(main, b_key, 0, bound - 1, pairPerBlock);
+    return (pos);
+}
