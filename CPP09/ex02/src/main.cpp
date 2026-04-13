@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:34:11 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/04/09 20:08:08 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/04/13 14:52:24 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ int main(int ac, char **av)
         std::cerr << "Error" << std::endl;   
         return (1);
     }
-    // get input (push value in container)
-
+    
     PmergeMe vec;
 
     for (int i = 1; i < ac; i++)
@@ -34,11 +33,6 @@ int main(int ac, char **av)
 
     vec.printMain();
     vec.orderPair();
-    // std::vector<int> test = buildBlocks(11, 2);
-    // for (size_t i = 0; i < test.size(); i++)
-    // {
-    //     std::cout << "--------------------------" << std::endl;
-    //     std::cout << i << ": " << test[i] << std::endl;
-    // }
+
     return (0);
 }
