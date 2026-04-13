@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:34:03 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/04/13 14:51:30 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/04/13 15:15:07 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class PmergeMe
         // std::vector<int> _v_pending;
         bool _v_leftover;
         int _v_left_value;
+        size_t _v_comparisons;
         // int _v_level;
         
         

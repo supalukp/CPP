@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:34:07 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/04/13 14:51:56 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/04/13 15:23:37 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <cmath>
 #include <algorithm>
 
-PmergeMe::PmergeMe(void) : _v_leftover(false), _v_left_value(0) { }
+PmergeMe::PmergeMe(void) : _v_leftover(false), _v_left_value(0), _v_comparisons(0) { }
 
 // PmergeMe::PmergeMe(const PmergeMe& other) 
 // {
@@ -92,7 +92,7 @@ void printList(std::vector<std::pair<int,int> > _v_pairs)
 
 void PmergeMe::orderPair(void)
 {    
-    std::cout << "input size: " << _v_input.size() << std::endl;
+    _v_comparisons = 0;
     // 1. check left over before pair + store it
     if (_v_input.size() % 2 == 1)
     {
@@ -102,26 +102,26 @@ void PmergeMe::orderPair(void)
     // 2. compare position i and (i+1) if (i+1) bigger than i swap position before push back a pair to _v_pairs (Here is Recursion level 1)
     for (std::vector<int>::iterator it = _v_input.begin(); it != _v_input.end() && it + 1 != _v_input.end(); it += 2)
     {
+        _v_comparisons++;
         if (*it > *(it+1))
             _v_pairs.push_back(std::make_pair(*(it + 1), *it));
         else
             _v_pairs.push_back(std::make_pair(*it, *(it + 1)));
     }
 
-    printData();
-    printList(_v_pairs);
+    // printData();
+    // printList(_v_pairs);
     
     int level = 1;
     size_t blockSize = 1;
     while (blockSize < _v_pairs.size())
     {
-        std::cout << "blocksize: " << blockSize << std::endl;
         level++;
         for (size_t i = 0; i + (2 * blockSize) <= _v_pairs.size(); i += (blockSize * 2))
         {
             size_t leftEnd = i + blockSize - 1;
             size_t rightEnd = i + (2 * blockSize) - 1;
-
+            _v_comparisons++;
             if (_v_pairs[leftEnd].second > _v_pairs[rightEnd].second)
             {
                 for (size_t j = 0; j < blockSize; j++)
@@ -132,144 +132,48 @@ void PmergeMe::orderPair(void)
                 }
             }
         }
-        std::cout << "level: " << level << std::endl;
-        printList(_v_pairs);
         blockSize *= 2;
         if (blockSize * 2 > _v_pairs.size())
             break;
     }
-    printData();
 
     while (level > 1)
-    // for (int i = level; i > 1; i--)
     {
-        std::cout << "\n-----------------------\n\n";
-        std::cout << "level: " << level << std::endl;
-        std::cout << "_v_pairs.size(): " << _v_pairs.size() << std::endl;
-        std::cout << "pairPerBlock: " << getPairPerBlock(level) << std::endl;
         std::vector<int> blocks = buildBlocks(_v_pairs.size(), getPairPerBlock(level));
-        std::cout << "blockSize(): " << blocks.size() << std::endl;
         std::vector<int> main;
         std::vector<int> pend;
         setMainPend(main, pend, blocks);
-        std::cout << "main: ";
-        for (size_t b = 0; b < main.size(); b++)
-            std::cout << main[b] << " ";
-        std::cout << std::endl;
-
-        std::cout << "pend: ";
-        for (size_t d = 0; d < pend.size(); d++)
-            std::cout << pend[d] << " ";
-        std::cout << std::endl;
-        for (size_t j = 0; j < blocks.size(); j++)
-        {
-            std::cout << "\n------\n";
-            std::cout << "blockStart: " << blocks[j] << std::endl;
-            std::cout << "blockEnd: " << getBlockEnd(blocks[j], getPairPerBlock(level)) << std::endl;
-            std::cout << "key: " << getBlockKey(blocks[j], getPairPerBlock(level)) << std::endl;
-
-            if (j != 0 && j % 2 == 0)
-            {
-                std::cout << "b_i: " << blocks[j] << std::endl;
-                std::cout << "a_i value: " << getBoundPartner(blocks[j], getPairPerBlock(level)) << std::endl;
-                std::cout << "a_i position: " << getPositionBoundInMain(main, getBoundPartner(blocks[j], getPairPerBlock(level))) << std::endl;
-            }
-        }
         
-        std::cout << "++++++++++++++++\n";
-        for (size_t k = 0; k < pend.size(); k++)
+        std::vector<int> jacobsthalOrder = getJacobStahlOrder(pend.size());
+        for (size_t k = 0; k < jacobsthalOrder.size(); k++)
         {
-            std::cout << "main: ";
-            for (size_t x = 0; x < main.size(); x++)
-            {
-                std::cout << main[x] << " ";
-            }
-            std::cout << "\nkey: ";
-            for (size_t j = 0; j < main.size(); j++)
-            {
-                std::cout << getBlockKey(main[j], getPairPerBlock(level)) << " ";
-            }
-            std::cout << std::endl;
-
-            std::cout << "pend: ";
-            for (size_t f = 0; f < pend.size(); f++)
-                std::cout << pend[f] << " ";
-            std::cout << std::endl;
-            std::cout << "pend " << k << " value: " << pend[k] << " : insert bound is " << getBoundPartner(pend[k], getPairPerBlock(level)) << std::endl;
-            std::cout << "insert position is: " << getPairInsertPosition(main, pend[k], getPairPerBlock(level)) << std::endl;
-            insertPendToMain(main, pend[k], getPairInsertPosition(main, pend[k], getPairPerBlock(level)));
-            std::cout << "\n ---main: ";
-            for (size_t x = 0; x < main.size(); x++)
-                std::cout << main[x] << " ";
-            std::cout << "\nkey: ";
-            for (size_t s = 0; s < main.size(); s++)
-            {
-                std::cout << getBlockKey(main[s], getPairPerBlock(level)) << " ";
-            }
-            std::cout << std::endl;
-            // std::cout << "pend: ";
-            // for (size_t level = 0; level < pend.size(); level++)
-            //     std::cout << pend[level] << " ";
-            // std::cout << std::endl;
+            insertPendToMain(main, pend[jacobsthalOrder[k]], getPairInsertPosition(main, pend[jacobsthalOrder[k]], getPairPerBlock(level)));
         }
         rebuildPair(main, getPairPerBlock(level));
-        printList(_v_pairs);
-        // std::vector<int> main;
-        // std::vector<int> pend;
-
-        // setMainPend(main, pend, blocks);
-
-        // std::cout << "main: ";
-        // for (size_t i = 0; i < main.size(); i++)
-        //     std::cout << main[i] << " ";
-        // std::cout << std::endl;
-
-        // std::cout << "pend: ";
-        // for (size_t i = 0; i < pend.size(); i++)
-        //     std::cout << pend[i] << " ";
-        // std::cout << std::endl;
         level--;
     }
-    std::cout << "level ===== " << level << std::endl;
-    // 1. build vector of new list + if has left over
+  
     _v_sort = buildNewList();
-    std::cout << "newList: ";
-    for (size_t i = 0; i < _v_sort.size(); i++)
-        std::cout << _v_sort[i] << " ";
-    std::cout << std::endl;
-    // 2. main and pend
+    
     std::vector<int> block = buildBlocks( _v_sort.size(), 1);
-    std::cout << "block: ";
-    for (size_t i = 0; i < block.size(); i++)
-        std::cout <<block[i] << " ";
-    std::cout << std::endl;
+   
     std::vector<int> main;
     std::vector<int> pend;
     setMainPend(main, pend, block);
-    std::cout << "main: ";
-    for (size_t b = 0; b < main.size(); b++)
-        std::cout << main[b] << " ";
-    std::cout << std::endl;
-
-    std::cout << "pend: ";
-    for (size_t d = 0; d < pend.size(); d++)
-        std::cout << pend[d] << " ";
-    std::cout << std::endl;
-    // 3. insert
-    for (size_t k = 0; k < pend.size(); k++)
+   
+    std::vector<int> jacobsthalOrder = getJacobStahlOrder(pend.size());
+    for (size_t k = 0; k < jacobsthalOrder.size(); k++)
     {
-        insertPendToMain(main, pend[k], getIntInsertPosition(main, pend[k]));
+        insertPendToMain(main, pend[jacobsthalOrder[k]], getIntInsertPosition(main, pend[jacobsthalOrder[k]]));
     }
-    std::cout << "main: ";
-    for (size_t b = 0; b < main.size(); b++)
-        std::cout << main[b] << " ";
-    std::cout << std::endl;
-    // 4. rebuild list
+    
     rebuildList(main);
     std::cout << "Final: ";
     for (size_t i = 0; i < _v_sort.size(); i++)
         std::cout << _v_sort[i] << " ";
     std::cout << std::endl;
+    std::cout << "Size: " << _v_input.size() << std::endl;
+    std::cout << "Comparisons: " << _v_comparisons << std::endl;
 }
 
 // for int
@@ -298,9 +202,9 @@ int PmergeMe::intBinarySearch(std::vector<int> &main, int key, int left, int rig
         // std::cout << "left = " << left << " right = " << right << std::endl;
         int mid = left + ((right - left) / 2);
         int key_main_mid = getIntKey(main[mid]);
-        if (key == key_main_mid)
-            return (mid + 1);
-        else if (key > key_main_mid)
+
+        _v_comparisons++;
+        if (key > key_main_mid)
             left = mid + 1;
         else
             right = mid - 1;
@@ -415,9 +319,9 @@ int PmergeMe::binarySearch(std::vector<int> &main, int key, int left, int right,
         // std::cout << "left = " << left << " right = " << right << std::endl;
         int mid = left + ((right - left) / 2);
         int key_main_mid = getBlockKey(main[mid], pairPerBlock);
-        if (key == key_main_mid)
-            return (mid + 1);
-        else if (key > key_main_mid)
+
+        _v_comparisons++;
+        if (key > key_main_mid)
             left = mid + 1;
         else
             right = mid - 1;
@@ -490,11 +394,11 @@ std::vector<int> PmergeMe::getJacobStahlOrder(int pendSize)
     for (size_t i = 1; i < jacobSequence.size(); i++)
     {
         int prev = jacobSequence[i - 1];
-        int min = std::min(jacobSequence[i], lastB);
-        while (min > prev)
+        int current = std::min(jacobSequence[i], lastB);
+        while (current > prev)
         {
-            indexOrder.push_back(min - 2);
-            min--;
+            indexOrder.push_back(current - 2);
+            current--;
         }
     }
     return (indexOrder);

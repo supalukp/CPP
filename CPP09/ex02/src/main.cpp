@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:34:11 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/04/13 14:52:24 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/04/13 15:00:33 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ int main(int ac, char **av)
 
     vec.printMain();
     vec.orderPair();
-
+    
     return (0);
 }
