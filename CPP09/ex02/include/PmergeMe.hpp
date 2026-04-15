@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:34:03 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/04/15 11:54:10 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/04/15 13:57:04 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,29 +50,31 @@ class PmergeMe
 
         // Ford-Johnson Vector
         void runFordJohnsonVector();
+        void v_storeOddLeftOver();
+        void v_makeInitPairs();
+        void v_sortWinnerBlock(int &level, size_t &blockSize);
+        void v_insertPairLevels(int &level);
+        void v_makePairtoInt();
+        void v_sortFinalIntLevel();
         
-        void printMain();
-
-        void orderPair();
-        void printData(void);
-        int getPairPerBlock(int level);
-        int getBlockEnd(int blockStart, int pairPerBlock);
-        int getBlockKey(int blockStart, int pairPerBlock);
-        std::vector<int> buildBlocks(int pairSize, int pairPerBlock);
-        void setMainPend(std::vector<int> &main, std::vector<int> &pend, std::vector<int> &blocks);
-        int getBoundPartner(int bStart, int pairPerBlock);
-        int getPositionBoundInMain(std::vector<int> &main, int aStart);
-        int getPairInsertPosition(std::vector<int> &main, int bStart, int pairPerBlock);
-        int binarySearch(std::vector<int> &main, int key, int left, int right, int pairPerBlock);
-        void insertPendToMain(std::vector<int> &main, int bStart, int insertPos);
-        void rebuildPair(std::vector<int> &main, int pairPerBlock);
-        std::vector<int> buildNewList();
-        int getIntBoundPartner(int bStart);
-        int getIntInsertPosition(std::vector<int> &main, int bStart);
-        int getIntKey(int bStart);
-        int intBinarySearch(std::vector<int> &main, int key, int left, int right);
-        void rebuildList(std::vector<int> &main);
-        std::vector<int> getJacobStahlOrder(int pendSize);
+     
+        int v_getPairPerBlock(int level);
+        int v_getBlockEnd(int blockStart, int pairPerBlock);
+        int v_getBlockKey(int blockStart, int pairPerBlock);
+        std::vector<int> v_buildBlocks(int pairSize, int pairPerBlock);
+        void v_setMainPend(std::vector<int> &main, std::vector<int> &pend, std::vector<int> &blocks);
+        int v_getBoundPartner(int bStart, int pairPerBlock);
+        int v_getPositionBoundInMain(std::vector<int> &main, int aStart);
+        int v_getPairInsertPosition(std::vector<int> &main, int bStart, int pairPerBlock);
+        int v_binarySearch(std::vector<int> &main, int key, int left, int right, int pairPerBlock);
+        void v_insertPendToMain(std::vector<int> &main, int bStart, int insertPos);
+        void v_rebuildPair(std::vector<int> &main, int pairPerBlock);
+        int v_getIntBoundPartner(int bStart);
+        int v_getIntInsertPosition(std::vector<int> &main, int bStart);
+        int v_getIntKey(int bStart);
+        int v_intBinarySearch(std::vector<int> &main, int key, int left, int right);
+        void v_rebuildList(std::vector<int> &main);
+        std::vector<int> v_getJacobStahlOrder(int pendSize);
 };
 
 bool isValidInput(int ac, char **av);
