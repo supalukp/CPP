@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:34:07 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/04/15 20:25:36 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/04/15 20:27:12 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,21 +37,15 @@ int PmergeMe::storeValidInput(int ac, char **av)
 void PmergeMe::runFordJohnsonVector()
 {
     _v_comparisons = 0;
-    // 1. detect odd left over
     v_storeOddLeftOver();
-    // 2. create pair
     v_makeInitPairs();
-    // 3. sort winner block
+    
     int level = 1;
     size_t blockSize = 1;
     v_sortWinnerBlock(level, blockSize);
-    // 4. recursively rebuild pair level
     v_insertPairLevels(level);
-    // 5. flatten to ints
     v_makePairtoInt();
-    // 6. final insertion
     v_sortFinalIntLevel();
-    // 7. print result
 }
 
 void PmergeMe::printResult(clock_t dif_vector, clock_t dif_deque)
@@ -397,23 +391,17 @@ std::vector<int> PmergeMe::v_getJacobStahlOrder(int pendSize)
 void PmergeMe::runFordJohnsonDeque()
 {
     _d_comparisons = 0;
-    // 1. detect odd left over
     d_storeOddLeftOver();
-    // 2. create pair
     d_makeInitPairs();
-    // 3. sort winner block
+    
     int level = 1;
     size_t blockSize = 1;
-    d_sortWinnerBlock(level, blockSize);
-    // 4. recursively rebuild pair level
-    d_insertPairLevels(level);
-    // 5. flatten to ints
-    d_makePairtoInt();
-    // 6. final insertion
-    d_sortFinalIntLevel();
-    // 7. print result
-}
 
+    d_sortWinnerBlock(level, blockSize);
+    d_insertPairLevels(level);
+    d_makePairtoInt();
+    d_sortFinalIntLevel();
+}
 
 void PmergeMe::d_storeOddLeftOver()
 {
