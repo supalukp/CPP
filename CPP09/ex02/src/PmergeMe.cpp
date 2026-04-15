@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:34:07 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/04/15 14:40:16 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/04/15 14:44:32 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,23 @@ void PmergeMe::runFordJohnsonVector()
     // 6. final insertion
     v_sortFinalIntLevel();
     // 7. print result
+}
+
+void PmergeMe::printResult()
+{
+    std::cout << "Before: ";
+    for (std::vector<int>::const_iterator it = _v_input.begin(); it != _v_input.end(); it++)
+    {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
+
+    std::cout << "After: ";
+    for (std::vector<int>::const_iterator it = _v_sort.begin(); it != _v_sort.end(); it++)
+    {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
 }
 
 void PmergeMe::v_storeOddLeftOver()

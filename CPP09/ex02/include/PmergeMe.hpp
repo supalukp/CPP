@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:34:03 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/04/15 14:40:51 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/04/15 14:41:47 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,9 @@ class PmergeMe
 
         // Ford-Johnson
         void runFordJohnsonVector();
+
+        // print result
+        void printResult();
 
         // Ford-Johnson Vector
         void v_storeOddLeftOver();
