@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:34:03 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/04/15 13:57:04 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/04/15 14:40:51 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,18 @@
 class PmergeMe
 {
     private:
-        std::deque<int> _d_input;
-        // std::deque<int> _d_pend;
         std::vector<int> _v_input;
         std::vector<int> _v_sort;
         std::vector<std::pair<int, int> >  _v_pairs;
-        // std::vector<int> _v_main;
-        // std::vector<int> _v_pending;
-        bool _v_leftover;
-        int _v_left_value;
         size_t _v_comparisons;
-        // int _v_level;
+
+        std::deque<int> _d_input;
+        std::deque<int> _d_sort;
+        std::deque<std::pair<int, int> >  _d_pairs;
+        size_t _d_comparisons;
         
+        bool _leftover;
+        int  _left_value;
         
     public:
         PmergeMe(void);
@@ -44,25 +44,25 @@ class PmergeMe
         // PmergeMe& operator=(const PmergeMe& other);
         ~PmergeMe(void);
 
-        // parsing
+        // parsing both vector and deque
         int storeValidInput(int ac, char **av);
-    
+
+        // Ford-Johnson
+        void runFordJohnsonVector();
 
         // Ford-Johnson Vector
-        void runFordJohnsonVector();
         void v_storeOddLeftOver();
         void v_makeInitPairs();
         void v_sortWinnerBlock(int &level, size_t &blockSize);
         void v_insertPairLevels(int &level);
         void v_makePairtoInt();
         void v_sortFinalIntLevel();
-        
-     
+
+        // helper for vector
         int v_getPairPerBlock(int level);
         int v_getBlockEnd(int blockStart, int pairPerBlock);
         int v_getBlockKey(int blockStart, int pairPerBlock);
         std::vector<int> v_buildBlocks(int pairSize, int pairPerBlock);
-        void v_setMainPend(std::vector<int> &main, std::vector<int> &pend, std::vector<int> &blocks);
         int v_getBoundPartner(int bStart, int pairPerBlock);
         int v_getPositionBoundInMain(std::vector<int> &main, int aStart);
         int v_getPairInsertPosition(std::vector<int> &main, int bStart, int pairPerBlock);

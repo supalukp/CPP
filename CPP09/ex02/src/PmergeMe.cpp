@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:34:07 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/04/15 13:56:32 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/04/15 14:40:16 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <cmath>
 #include <algorithm>
 
-PmergeMe::PmergeMe(void) : _v_leftover(false), _v_left_value(0), _v_comparisons(0) { }
+PmergeMe::PmergeMe(void) :  _v_comparisons(0), _d_comparisons(0), _leftover(false), _left_value(0) { }
 
 PmergeMe::~PmergeMe(void) { }
 
@@ -55,8 +55,8 @@ void PmergeMe::v_storeOddLeftOver()
 {
     if (_v_input.size() % 2 == 1)
     {
-        _v_leftover = true;
-        _v_left_value = _v_input.back();
+        _leftover = true;
+        _left_value = _v_input.back();
     }
 }
 
@@ -105,7 +105,13 @@ void PmergeMe::v_insertPairLevels(int &level)
         std::vector<int> blocks = v_buildBlocks(_v_pairs.size(), v_getPairPerBlock(level));
         std::vector<int> main;
         std::vector<int> pend;
-        v_setMainPend(main, pend, blocks);
+        for (size_t i = 0; i < blocks.size(); i++)
+        {
+            if (i == 0 || i % 2 == 1)
+                main.push_back(blocks[i]);
+            else
+                pend.push_back(blocks[i]);
+        }
         
         std::vector<int> jacobsthalOrder = v_getJacobStahlOrder(pend.size());
         for (size_t k = 0; k < jacobsthalOrder.size(); k++)
@@ -124,18 +130,23 @@ void PmergeMe::v_makePairtoInt()
         _v_sort.push_back(_v_pairs[i].first);
         _v_sort.push_back(_v_pairs[i].second);
     }
-    if (_v_leftover == true)
-        _v_sort.push_back(_v_left_value);
+    if (_leftover == true)
+        _v_sort.push_back(_left_value);
 }
-
 
 void PmergeMe::v_sortFinalIntLevel()
 {
-    std::vector<int> block = v_buildBlocks( _v_sort.size(), 1);
+    std::vector<int> blocks = v_buildBlocks( _v_sort.size(), 1);
    
     std::vector<int> main;
     std::vector<int> pend;
-    v_setMainPend(main, pend, block);
+    for (size_t i = 0; i < blocks.size(); i++)
+    {
+        if (i == 0 || i % 2 == 1)
+            main.push_back(blocks[i]);
+        else
+            pend.push_back(blocks[i]);
+    }
    
     std::vector<int> jacobsthalOrder = v_getJacobStahlOrder(pend.size());
     for (size_t k = 0; k < jacobsthalOrder.size(); k++)
@@ -154,9 +165,8 @@ int PmergeMe::v_intBinarySearch(std::vector<int> &main, int key, int left, int r
 {
     while (left <= right)
     {
-        // std::cout << "left = " << left << " right = " << right << std::endl;
         int mid = left + ((right - left) / 2);
-        int key_main_mid = v_getIntKey(main[mid]);
+        int key_main_mid = _v_sort[main[mid]];
 
         _v_comparisons++;
         if (key > key_main_mid)
@@ -171,7 +181,7 @@ int PmergeMe::v_getIntInsertPosition(std::vector<int> &main, int bStart)
 {
     int aStart = v_getIntBoundPartner(bStart);
     int bound = v_getPositionBoundInMain(main, aStart);
-    int b_key = v_getIntKey(bStart);
+    int b_key = _v_sort[bStart];
     int main_size = static_cast<int>(main.size());
     if (bound == -1)
         bound = main_size;
@@ -187,7 +197,6 @@ int PmergeMe::v_getIntBoundPartner(int bStart)
     return (aStart);
 }
 
-
 void PmergeMe::v_rebuildList(std::vector<int> &main)
 {
     std::vector<int> newList;
@@ -198,7 +207,6 @@ void PmergeMe::v_rebuildList(std::vector<int> &main)
     _v_sort = newList;
 }
 
-// for std::pair
 int PmergeMe::v_getPairPerBlock(int level)
 {
     if (level <= 1)
@@ -226,24 +234,11 @@ int PmergeMe::v_getBlockKey(int blockStart, int pairPerBlock)
 std::vector<int> PmergeMe::v_buildBlocks(int pairSize, int pairPerBlock)
 {
     std::vector<int> blocks;
-    // if (pairPerBlock == 0)
-    //     pairPerBlock++;
     for(int i = 0; i + pairPerBlock <= pairSize; i += pairPerBlock)
     {
         blocks.push_back(i);
     }
     return (blocks);
-}
-
-void PmergeMe::v_setMainPend(std::vector<int> &main, std::vector<int> &pend, std::vector<int> &blocks)
-{
-    for (size_t i = 0; i < blocks.size(); i++)
-    {
-        if (i == 0 || i % 2 == 1)
-            main.push_back(blocks[i]);
-        else
-            pend.push_back(blocks[i]);
-    }
 }
 
 // return (-1) mean no partner
@@ -271,7 +266,6 @@ int PmergeMe::v_binarySearch(std::vector<int> &main, int key, int left, int righ
 {
     while (left <= right)
     {
-        // std::cout << "left = " << left << " right = " << right << std::endl;
         int mid = left + ((right - left) / 2);
         int key_main_mid = v_getBlockKey(main[mid], pairPerBlock);
 
