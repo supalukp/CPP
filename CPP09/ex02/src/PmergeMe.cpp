@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:34:07 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/04/13 15:23:37 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/04/15 11:58:29 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,38 @@
 
 PmergeMe::PmergeMe(void) : _v_leftover(false), _v_left_value(0), _v_comparisons(0) { }
 
-// PmergeMe::PmergeMe(const PmergeMe& other) 
-// {
-    
-// }
-
-// PmergeMe& PmergeMe::operator=(const PmergeMe& other)
-// {
-    
-// }
-
 PmergeMe::~PmergeMe(void) { }
 
-void PmergeMe::addValueToMain(int value)
+int PmergeMe::storeValidInput(int ac, char **av)
 {
-    _v_input.push_back(value);
+    if (!isValidInput(ac, av))
+        return (1);
+    for (int i = 1; i < ac; i++)
+    {
+        int value = std::atoi(av[i]);
+        _v_input.push_back(value);
+        _d_input.push_back(value);
+    }
+    return (0);
 }
+
+// void PmergeMe::runFordJohnsonVector()
+// {
+//     // 1. detect odd left over
+//     storeOddLeftOver();
+//     // 2. create pair
+//     makeInitPairs();
+//     // 3. sort winner block
+//     sortWinnerBlock()
+//     // 4. recursively rebuild pair level
+//     insertPairLevels()
+//     // 5. flatten to ints
+//     makePairtoInt()
+//     // 6. final insertion
+//     sortFinalIntLevel()
+//     // 7. print result
+// }
+
 
 void PmergeMe::printMain()
 {
@@ -92,6 +108,20 @@ void printList(std::vector<std::pair<int,int> > _v_pairs)
 
 void PmergeMe::orderPair(void)
 {    
+    // 1. detect odd left over
+        // storeOddLeftOver();
+    // 2. create pair
+        // makeInitPairs();
+    // 3. sort winner block
+        // sortPairLevels()
+    // 4. recursively rebuild pair level
+        // 
+    // 5. flatten to ints
+    // 6. final insertion
+        // sortFinalIntLevel()
+    // 7. print result
+
+    
     _v_comparisons = 0;
     // 1. check left over before pair + store it
     if (_v_input.size() % 2 == 1)

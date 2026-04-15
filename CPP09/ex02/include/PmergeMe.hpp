@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:34:03 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/04/13 15:15:07 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/04/15 11:54:10 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 class PmergeMe
 {
     private:
-        // std::deque<int> _d_main;
+        std::deque<int> _d_input;
         // std::deque<int> _d_pend;
         std::vector<int> _v_input;
         std::vector<int> _v_sort;
@@ -44,8 +44,13 @@ class PmergeMe
         // PmergeMe& operator=(const PmergeMe& other);
         ~PmergeMe(void);
 
+        // parsing
+        int storeValidInput(int ac, char **av);
+    
+
+        // Ford-Johnson Vector
+        void runFordJohnsonVector();
         
-        void addValueToMain(int value);
         void printMain();
 
         void orderPair();

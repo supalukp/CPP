@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:34:11 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/04/13 15:00:33 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/04/15 11:58:06 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,16 @@
 
 int main(int ac, char **av)
 {
-    // check input
     if (ac < 2)
         return (1);
-    if (!isValidInput(ac, av))
-    {
-        std::cerr << "Error" << std::endl;   
-        return (1);
-    }
     
-    PmergeMe vec;
+    PmergeMe a;
+    
+    if (a.storeValidInput(ac, av) == 1)
+        return (1);
 
-    for (int i = 1; i < ac; i++)
-    {
-        int value = std::atoi(av[i]);
-        vec.addValueToMain(value);
-    }
-
-    vec.printMain();
-    vec.orderPair();
+    a.printMain();
+    a.orderPair();
     
     return (0);
 }
