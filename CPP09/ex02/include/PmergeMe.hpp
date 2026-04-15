@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:34:03 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/04/15 14:41:47 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/04/15 19:45:40 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,10 @@ class PmergeMe
 
         // Ford-Johnson
         void runFordJohnsonVector();
+        void runFordJohnsonDeque();
 
         // print result
-        void printResult();
+        void printResult(clock_t dif_vector, clock_t dif_deque);
 
         // Ford-Johnson Vector
         void v_storeOddLeftOver();
@@ -78,8 +79,32 @@ class PmergeMe
         int v_intBinarySearch(std::vector<int> &main, int key, int left, int right);
         void v_rebuildList(std::vector<int> &main);
         std::vector<int> v_getJacobStahlOrder(int pendSize);
-};
 
-bool isValidInput(int ac, char **av);
+        // Ford-Johnson Deque
+        void d_storeOddLeftOver();
+        void d_makeInitPairs();
+        void d_sortWinnerBlock(int &level, size_t &blockSize);
+        void d_insertPairLevels(int &level);
+        void d_makePairtoInt();
+        void d_sortFinalIntLevel();
+
+        // helper for Deque
+        int d_getPairPerBlock(int level);
+        int d_getBlockEnd(int blockStart, int pairPerBlock);
+        int d_getBlockKey(int blockStart, int pairPerBlock);
+        std::deque<int> d_buildBlocks(int pairSize, int pairPerBlock);
+        int d_getBoundPartner(int bStart, int pairPerBlock);
+        int d_getPositionBoundInMain(std::deque<int> &main, int aStart);
+        int d_getPairInsertPosition(std::deque<int> &main, int bStart, int pairPerBlock);
+        int d_binarySearch(std::deque<int> &main, int key, int left, int right, int pairPerBlock);
+        void d_insertPendToMain(std::deque<int> &main, int bStart, int insertPos);
+        void d_rebuildPair(std::deque<int> &main, int pairPerBlock);
+        int d_getIntBoundPartner(int bStart);
+        int d_getIntInsertPosition(std::deque<int> &main, int bStart);
+        int d_getIntKey(int bStart);
+        int d_intBinarySearch(std::deque<int> &main, int key, int left, int right);
+        void d_rebuildList(std::deque<int> &main);
+        std::deque<int> d_getJacobStahlOrder(int pendSize);
+};
 
 #endif
