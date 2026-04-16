@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 15:23:31 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/01/03 20:59:31 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/04/16 12:56:25 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int main(int ac, char **av)
 {
-    (void)av;
     if (ac != 2)
     {
         std::cerr << "Error: missing input file" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 15:23:28 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/01/05 16:54:33 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/04/16 14:08:07 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,15 @@ int BitcoinExchange::loadData(const std::string& filename)
         size_t index = line.find(',');
         if (index == std::string::npos)
         {
-            std::cerr << "Error: bad input => " << line << std::endl;
+            std::cerr << "Error: bad data => " << line << std::endl;
             continue;
         }
         std::string date  = line.substr(0, index);
+        if (date.size() != 10)
+        {
+            std::cerr << "Error: bad data => " << line << std::endl;
+            continue;
+        }
         std::string value = line.substr(index + 1);
         
         double dValue = atof(value.c_str());
@@ -117,7 +122,7 @@ int BitcoinExchange::getInput(const std::string& filename)
             errno = 0;
             char *end;
             fValue = std::strtof(value.c_str(), &end);
-            if (end == value.c_str() || errno == ERANGE || fValue < 1.0f || fValue > 1000.0f)
+            if (end == value.c_str() || errno == ERANGE || fValue < 0 || fValue > 1000.0f)
             {
                 std::cerr << "Error: value out of range => " << line << std::endl;
                 continue;
@@ -133,7 +138,7 @@ int BitcoinExchange::getInput(const std::string& filename)
             errno = 0;
             char *end;
             long lValue = std::strtol(value.c_str(), &end, 10);
-            if (end == value.c_str() || errno == ERANGE || lValue > 1000 || lValue < 1)
+            if (end == value.c_str() || errno == ERANGE || lValue > 1000 || lValue < 0)
             {
                 std::cerr << "Error: value out of range => " << line << std::endl;
                 continue;
