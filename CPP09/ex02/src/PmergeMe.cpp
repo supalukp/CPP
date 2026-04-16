@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:34:07 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/04/16 11:27:24 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/04/16 14:21:39 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <cmath>
 #include <algorithm>
 #include <iomanip>
+#include <iostream>
 
 bool isValidInput(int ac, char **av);
 
