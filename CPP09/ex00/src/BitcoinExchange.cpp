@@ -6,11 +6,15 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 15:23:28 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/04/16 14:08:07 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/04/16 14:16:39 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
+#include <iostream>
+#include <fstream>
+#include <algorithm> 
+#include <cerrno>
 
 BitcoinExchange::BitcoinExchange(void) { }
 

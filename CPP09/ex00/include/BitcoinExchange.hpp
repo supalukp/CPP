@@ -6,25 +6,19 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 15:23:26 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/01/06 14:22:08 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/04/16 14:14:03 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BITCOIN_EXCHANGE_HPP
 #define BITCOIN_EXCHANGE_HPP
 
-#include <iostream>
-#include <fstream>
 #include <map>
+// #include <iostream>
+// #include <fstream>
 #include <string>
-#include <cstring>
-#include <algorithm> 
-#include <iomanip>
-#include <ctime>
-#include <cerrno>
-#include <climits>
-#include <cfloat>
-#include <cctype>
+// #include <algorithm> 
+// #include <cerrno>
 
 class BitcoinExchange 
 {

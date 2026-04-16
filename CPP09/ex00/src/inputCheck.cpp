@@ -6,12 +6,12 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 13:22:36 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/04/16 13:54:27 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/04/16 14:16:21 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
-
+#include <iostream>
+#include <algorithm> 
 
 bool isPosibleCharFloat(const std::string& str)
 {

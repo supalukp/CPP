@@ -6,11 +6,12 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 15:23:31 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/04/16 12:56:25 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/04/16 14:14:24 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
+#include <iostream>
 
 int main(int ac, char **av)
 {
