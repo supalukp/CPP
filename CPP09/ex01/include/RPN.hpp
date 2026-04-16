@@ -6,7 +6,7 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 17:07:55 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/01/06 15:42:16 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/04/16 14:24:44 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,9 @@ class RPN
             public:
                 virtual const char* what() const throw();
         };
-        int computeExpression(int right, int left, char expression);
-        void evalRPN(const std::string &str);
+        
+        int     computeExpression(int right, int left, char expression);
+        void    evalRPN(const std::string &str);
 };
 
 #endif
