@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:34:11 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/04/15 19:43:51 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/04/16 11:27:39 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,15 @@ int main(int ac, char **av)
     clock_t d_end = clock();
     
     a.printResult(v_end - v_start, d_end - d_start);
+
+    // std::cout << "\nTest: Copy constructor" << std::endl;
+    // PmergeMe b(a);
+    // b.printResult(v_end - v_start, d_end - d_start);
+    
+    // std::cout << "\nTest: Copy assignment operator" << std::endl;
+    // PmergeMe c;
+    // c = b;
+    // c.printResult(v_end - v_start, d_end - d_start);
     
     return (0);
 }

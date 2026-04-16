@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spunyapr <spunyapr@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:34:07 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/04/15 20:27:12 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/04/16 11:27:24 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,39 @@
 bool isValidInput(int ac, char **av);
 
 PmergeMe::PmergeMe(void) :  _v_comparisons(0), _d_comparisons(0), _leftover(false), _left_value(0) { }
+
+PmergeMe::PmergeMe(const PmergeMe& other)
+    :   _v_input(other._v_input),
+        _v_sort(other._v_sort),
+        _v_pairs(other._v_pairs),
+        _v_comparisons(other._v_comparisons),
+        _d_input(other._d_input),
+        _d_sort(other._d_sort),
+        _d_pairs(other._d_pairs),
+        _d_comparisons(other._d_comparisons),
+        _leftover(other._leftover),
+        _left_value(other._left_value) 
+{
+    
+}
+
+PmergeMe& PmergeMe::operator=(const PmergeMe& other)
+{
+    if (this != &other)
+    {
+        this->_v_input = other._v_input;
+        this->_v_sort = other._v_sort;
+        this->_v_pairs = other._v_pairs;
+        this->_v_comparisons = other._v_comparisons;
+        this->_d_input = other._d_input;
+        this->_d_sort = other._d_sort;
+        this->_d_pairs = other._d_pairs;
+        this->_d_comparisons = other._d_comparisons;
+        this->_leftover = other._leftover;
+        this->_left_value = other._left_value;
+    }
+    return (*this);
+}
 
 PmergeMe::~PmergeMe(void) { }
 
@@ -42,6 +75,7 @@ void PmergeMe::runFordJohnsonVector()
     
     int level = 1;
     size_t blockSize = 1;
+    
     v_sortWinnerBlock(level, blockSize);
     v_insertPairLevels(level);
     v_makePairtoInt();
@@ -50,40 +84,47 @@ void PmergeMe::runFordJohnsonVector()
 
 void PmergeMe::printResult(clock_t dif_vector, clock_t dif_deque)
 {
-    std::cout << "Before V: ";
+    // std::cout << "\n-------------- VECTOR --------------" << std::endl;
+    std::cout << "Before: ";
     for (std::vector<int>::const_iterator it = _v_input.begin(); it != _v_input.end(); it++)
     {
         std::cout << *it << " ";
     }
     std::cout << std::endl;
 
-    std::cout << "After V: ";
+    std::cout << "After: ";
     for (std::vector<int>::const_iterator it = _v_sort.begin(); it != _v_sort.end(); it++)
     {
         std::cout << *it << " ";
     }
     std::cout << std::endl;
     
-    std::cout << "Before D: ";
-    for (std::deque<int>::const_iterator it = _d_input.begin(); it != _d_input.end(); it++)
-    {
-        std::cout << *it << " ";
-    }
-    std::cout << std::endl;
 
-    std::cout << "After D: ";
-    for (std::deque<int>::const_iterator it = _d_sort.begin(); it != _d_sort.end(); it++)
-    {
-        std::cout << *it << " ";
-    }
-    std::cout << std::endl;
+    // std::cout << "\n--------------- DEQUE ---------------" << std::endl;
+    // std::cout << "Before: ";
+    // for (std::deque<int>::const_iterator it = _d_input.begin(); it != _d_input.end(); it++)
+    // {
+    //     std::cout << *it << " ";
+    // }
+    // std::cout << std::endl;
+
+    // std::cout << "After: ";
+    // for (std::deque<int>::const_iterator it = _d_sort.begin(); it != _d_sort.end(); it++)
+    // {
+    //     std::cout << *it << " ";
+    // }
+    // std::cout << std::endl;
     
+    // std::cout << std::endl;
     std::cout << std::fixed << std::setprecision(5);
     double time_us_vector = (static_cast<double>(dif_vector) / CLOCKS_PER_SEC) * 1000000.0;
     std::cout << "Time to process a range of " << _v_input.size() << " elements with std::vector : " << time_us_vector << " us" << std::endl;
     double time_us_deque = (static_cast<double>(dif_deque) / CLOCKS_PER_SEC) * 1000000.0;
     std::cout << "Time to process a range of " << _d_input.size() << " elements with std::deque : " << time_us_deque << " us" << std::endl;
 
+    // std::cout << std::endl;
+    // std::cout << "Vector comparisions: " << _v_comparisons << std::endl;
+    // std::cout << "Deque comparisions: " << _d_comparisons << std::endl;
 }
 
 void PmergeMe::v_storeOddLeftOver()
