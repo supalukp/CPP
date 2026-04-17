@@ -6,16 +6,20 @@
 /*   By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:34:11 by spunyapr          #+#    #+#             */
-/*   Updated: 2026/04/16 11:27:39 by spunyapr         ###   ########.fr       */
+/*   Updated: 2026/04/17 10:25:32 by spunyapr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+#include <iostream>
 
 int main(int ac, char **av)
 {
     if (ac < 2)
+    {
+        std::cerr << "Error: usage ./PmergeMe positive integer sequence (ex. 3 4 2 5 8 1)" << std::endl;
         return (1);
+    }
     
     PmergeMe a;
     if (a.storeValidInput(ac, av) == 1)
