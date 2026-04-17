@@ -6,10 +6,9 @@
 #    By: spunyapr <spunyapr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/19 16:27:13 by spunyapr          #+#    #+#              #
-#    Updated: 2026/01/06 12:04:40 by spunyapr         ###   ########.fr        #
+#    Updated: 2026/04/17 10:18:13 by spunyapr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 # Compiler
 CPP = c++
@@ -45,4 +44,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-
